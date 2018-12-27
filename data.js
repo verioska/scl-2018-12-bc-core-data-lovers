@@ -2,6 +2,7 @@ const datos= Object.values(LOL.data);
 const datos1=Object.values(LOL.data);
 const imagenfinal=[]
 const imagenfinalZA=[]
+const categoria=[]
 
 function ordenar(datos){
     let resultado=[];
@@ -9,7 +10,7 @@ function ordenar(datos){
     
     for(let i=0; i<datos.length; i++){
        resultado.push(datos[i]["id"]); 
-      imagenfinal.push(datos[i]["img"]);
+      imagenfinal.push(datos[i]["splash"]);
      //for(let i=0; i<imagen1.length; i++){
         // document.getElementById('root').innerHTML += `<img src="${imagen1[i]}" alt="">`
         // document.write('<img src="'+imagenfinal[i]+'" alt=" ">')
@@ -46,7 +47,7 @@ function ordenarZA(datos){
    for(let i=0; i<datos.length; i++){
 
         resultado.push(datos[i]["id"]); 
-        imagenfinalZA.push(datos[i].img);
+        imagenfinalZA.push(datos[i].splash);
    } 
     
    let reverso = resultado.reverse();
@@ -60,8 +61,20 @@ function ordenarZA(datos){
 }
 ordenarZA(datos);
 
+function filter (datos,condition) {
 
 
+  const categoria=datos.filter(tipos =>{
+  return tipos.tags.indexOf(condition)!==-1;
+  });
+  
+  console.log(categoria)
+  return categoria;
+  }
+ 
+  
+  
+ 
 
 //const datos= LOL;
 //console.log(datos) //me dice que es un objeto que contiene distintas cosas
