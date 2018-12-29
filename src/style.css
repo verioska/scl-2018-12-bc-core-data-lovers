@@ -1,8 +1,115 @@
 body{
-    
-    
-    background-color: rgb(240, 97, 53)
+    background-color: #0A0A0C;
 }
-.card{
-    color: burlywood;
-     }
+
+.menu{
+    
+    height: 100px;
+    margin:10px auto;
+}
+
+.nav-wrapper{
+    background-color: #19191C;
+    
+}
+
+#lol-logo{
+    width: 170px;
+    height: 60px;
+    margin-left: 60px;
+    margin-top: 20px;
+    
+}
+
+#nav-mobile li a{   
+    font-size: 20px;
+    padding:10px 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #9C865A;
+    margin-right: 60px;
+}
+
+h1{
+    font-size: 24px;
+    color:#D0BFD8;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
+
+#text-page1{
+    font-size: 18px ;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    color:#D0BFD8;
+   
+}
+
+#text{
+    margin-left: 110px;
+    margin-top: 40px;
+    float:left;
+}
+
+#page1-Image{
+    width: 550px;
+    height: 272px;
+    float: right 100%; 
+    margin-top: 40px;
+    margin-left: 140px;
+} 
+
+#start a{
+    font-size: 20px;
+    color:#9C865A;
+    float: right;
+    margin-right: 120px;
+    margin-top: 20px;
+}
+
+.page-footer{
+    height: 60px;
+    background-color: #19191C;
+    margin: 10px;
+    margin-top: 40px;
+} 
+
+#page2{
+    display: none;
+}
+
+#select-order{
+    float: right 100%;
+}
+
+#root{
+    width: 1152px;
+    margin:20px auto;
+    color:#9C865A;
+}
+
+input.select-dropdown.dropdown-trigger{
+    color:#9C865A;
+    width: 150px;
+    margin-left: 5px;
+}
+   
+
+div.card-image{
+    width: 150px;
+    height: 150px;
+    
+}
+
+#select-filter{
+    margin-left: 60px;
+    
+    
+}
+
+#select-order{
+    margin-left: 150px;
+} 
+
+#select-filter, #select-order{
+    display:inline-block;
+
+}
