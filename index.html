@@ -3,65 +3,122 @@
   <head>
     <meta charset="utf-8">
     <title>Data Lovers</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-     <!-- Compiled and minified CSS -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
 
-      <header>
-          <h1>  PROYECTO LOL 
-          </h1>
-      </header>
-          
-    <div class="row">    
-     <div class="input-field col s2">
-        <select id="select">
-            <option value="" disabled selected>Categorias</option>
-            <option></option>
-            <option value="Fighter">Luchador</option>
-            <option value="Mage">Mago</option>
-            <option value="Assassin">Asesino</option>
-            <option value="Tank">Tanque</option>
-            <option value="Marksman">Tirador</option>
-            <option value="Support">Soporte</option>
-        </select>
-         <label></label>
-     </div>
-   </div>
+    <header>
 
-
-    
-     
-      <button align="center" id="ordenar1" >Ordenar A-Z
-      </button>
-      <button align="center" id="ordenar2" >Ordenar Z-A
-      </button>
-     
-      <p id="ordenado">
-      </p>
-       <p id="ordenado2">
-       </p>
-
-    <div class="container">
-        <div id="root" class="row">
+      <nav class="menu">
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo"><img id="lol-logo"src="http://i.picasion.com/pic88/b5ff07cb77c0782ac41329acbd770506.gif"alt=""></a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="">Campeones</a></li>
+            <li><a href="">Estadisticas</a></li>
+            <li><a href="https://las.leagueoflegends.com/es/game-info/">Más de Lol</a></li>
+            <li><a href="https://play.las.leagueoflegends.com/es_AR">Unete a Lol</a></li>
+            
+            
+          </ul>
         </div>
-    </div> 
-   
+      </nav>
+                   
+    </header>
 
-    <!-- <script src="./data/injuries/injuries.js"></script> -->
-    <!-- <script src="./data/pokemon/pokemon.js"></script> -->
-    <!-- <script src="./data/steam/steam.js"></script> -->
-    <!-- <script src="./data/worldbank/worldbank.js"></script> -->
-     <!-- Compiled and minified JavaScript -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-     <script src="lol.js"></script> 
-     <script src="data.js"></script> 
-     <script src="main.js"></script> 
-     <script src="style.css"></script>
-   
+
+    <div id="page1">
+
+    <h1>Bienvenidos a Lol</h1>
+
+    <div id="text">
+      <p id="text-page1">League of Legends es un juego de competencia en línea,</br>
+        fusiona velocidad, intensidad y estrategia. ¡Todo en tiempo real! </br>
+        Te entregaremos todos los datos necesarios de los</br> 
+        campeones para que estés preparado para comenzar el juego.</br>
+        
+        Aquí podrás encontrar:</br>
+        Fotografías, Historias, Caracteristicas, Categorías, Estadísticas </br>
+        del juego y mucho más...</br>
+          
+        Comienza ahora a explorar este fantástico mundo! 
+      </p>
+    </div>
+
+    <div>
+      <img id="page1-Image" src="http://i.picasion.com/pic88/4a863cd09ca44c58e4a4891c516bbd7c.gif" alt="">
+    </div>
+    
+    <div id="start">
+        <a class="waves-effect waves-teal btn-flat">Comenzar</a>
+      </div>
+    
+  </div>
+
+
+  <div id="page2">
+
+     
+          <!-- Page Content goes here -->
+        
+      <div class="row" id="select-filter">    
+          <div id="select1"class="input-field col s2">
+             <select id="select" >
+               <option value="" >Elige tu categoria</option>
+                 <option></option>
+                 <option value="Fighter">Luchador</option>
+                 <option value="Mage">Mago</option>
+                 <option value="Assassin">Asesino</option>
+                 <option value="Tank">Tanque</option>
+                 <option value="Marksman">Tirador</option>
+                 <option value="Support">Soporte</option>
+             </select>
+              <label></label>
+          </div>
+        </div>
+      
+        <div class="row" id="select-order">    
+            <div id="select2"class="input-field col s2">
+               <select id="select">
+                 <option value="" >Ordenar Por:</option>
+                   <option></option>
+                   <option value="id">A-Z</option>
+                   <option value="id">Z-A</option>
+                   
+               </select>
+                <label></label>
+            </div>
+          </div>
+
+          <div class="container">
+          </div>
+      
+    </div>
+  </div>
+  
+    <div id="root" class="row"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="lol.js"></script> 
+    <script src="data.js"></script>
+    <script src="main.js"></script>
+
+
+    <footer class="page-footer">
+
+      <div class="footer-copyright">
+        <div class="container">
+        © 2018 Copyright Text
+        <a class="grey-text text-lighten-4 right" href="https://universe.leagueoflegends.com/es_ES/">Universo Lol</a>
+        </div>
+      </div>
+    </footer>
+
+  
+    
     
   </body>
 </html>
