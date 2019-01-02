@@ -39,9 +39,9 @@ document.getElementById('select').addEventListener("change",()=>{
 
 
 }
-document.getElementById('select2').addEventListener("change",()=>{
+document.getElementById('select3').addEventListener("change",()=>{
 
-
+if(document.getElementById('select3').value==="a-z"){
 document.getElementById('root').innerHTML=''
   for (let i = 0; i < resultadofuncion.length; i++) {
    // for (let i = 0; i < imagenfinal.length; i++) {
@@ -62,5 +62,54 @@ document.getElementById('root').innerHTML=''
  </div>
  `
 }
+}
+
+if(document.getElementById('select3').value==="z-a"){
+for (let i = 0; i < resultadofuncionZA.length; i++) {
+  // for (let i = 0; i < imagenfinal.length; i++) {
+  // document.getElementById('root').innerHTML += ' ' + resultadofuncion[i] + ' '; // imprimo en el HTML cada nombre que está dentro de cada posición del arreglo.
+  document.getElementById('root').innerHTML += `
+  <div class="card ">
+  <div class="col s2 m2">
+ 
+    <div class="card-image">
+      <img class="responsive-img" src="${imagenfinal[i]}" alt="" HSACE="500" VSPACE="20" width="550" >
+    </div>
+    <div class="card-title center"">
+      
+      <span class="card-title center">${resultadofuncionZA[i]}</span>
+      
+    </div>
+  </div>
+</div>
+`
+}
+
+}
+
+
 
 });
+
+
+  //   for (let i = 0; i < resultadofuncionZA.length; i++) {
+  //    // for (let i = 0; i < imagenfinal.length; i++) {
+  //    // document.getElementById('root').innerHTML += ' ' + resultadofuncion[i] + ' '; // imprimo en el HTML cada nombre que está dentro de cada posición del arreglo.
+  //    document.getElementById('root').innerHTML += `
+  //    <div class="card ">
+  //    <div class="col s2 m2">
+    
+  //      <div class="card-image">
+  //        <img class="responsive-img" src="${imagenfinal[i]}" alt="" HSACE="500" VSPACE="20" width="550" >
+  //      </div>
+  //      <div class="card-title center"">
+         
+  //        <span class="card-title center">${resultadofuncionZA[i]}</span>
+         
+  //      </div>
+  //    </div>
+  //  </div>
+  //  `
+  // }
+  
+  // });
