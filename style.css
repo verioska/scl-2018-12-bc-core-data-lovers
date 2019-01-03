@@ -76,11 +76,8 @@ h1{
     display: none;
 }
 
-#select-order{
-    float: right 100%;
-}
 
-#root{
+#root, #root1{
     width: 1152px;
     margin:20px auto;
     color:#9C865A;
@@ -107,9 +104,20 @@ div.card-image{
 
 #select-order{
     margin-left: 150px;
+    float: right 100%;
 } 
 
 #select-filter, #select-order{
     display:inline-block;
 
+}
+.card{
+    border-radius: 45px;
+}
+
+.card .card-reveal {
+
+    padding: 12px;
+    top: 137%;
+    height: 95%;
 }
