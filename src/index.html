@@ -18,7 +18,7 @@
         <div class="nav-wrapper">
           <a href="#" class="brand-logo"><img id="lol-logo"src="http://i.picasion.com/pic88/b5ff07cb77c0782ac41329acbd770506.gif"alt=""></a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="">Campeones</a></li>
+            <li><a href="" id="champions">Campeones</a></li>
             <li><a href="">Estadisticas</a></li>
             <li><a href="https://las.leagueoflegends.com/es/game-info/">Más de Lol</a></li>
             <li><a href="https://play.las.leagueoflegends.com/es_AR">Unete a Lol</a></li>
@@ -33,10 +33,10 @@
 
     <div id="page1">
 
-    <h1>Bienvenidos a Lol</h1>
+      <h1>Bienvenidos a Lol</h1>
 
-    <div id="text">
-      <p id="text-page1">League of Legends es un juego de competencia en línea,</br>
+      <div id="text">
+        <p id="text-page1">League of Legends es un juego de competencia en línea,</br>
         fusiona velocidad, intensidad y estrategia. ¡Todo en tiempo real! </br>
         Te entregaremos todos los datos necesarios de los</br> 
         campeones para que estés preparado para comenzar el juego.</br>
@@ -46,61 +46,57 @@
         del juego y mucho más...</br>
           
         Comienza ahora a explorar este fantástico mundo! 
-      </p>
-    </div>
+        </p>
+      </div>
 
-    <div>
-      <img id="page1-Image" src="http://i.picasion.com/pic88/4a863cd09ca44c58e4a4891c516bbd7c.gif" alt="">
-    </div>
+      <div>
+        <img id="page1-Image" src="http://i.picasion.com/pic88/4a863cd09ca44c58e4a4891c516bbd7c.gif" alt="">
+      </div>
     
-    <div id="start">
+      <div id="start">
         <a class="waves-effect waves-teal btn-flat">Comenzar</a>
       </div>
     
-  </div>
-
-
-  <div id="page2">
-
-     
-          <!-- Page Content goes here -->
-        
-      <div class="row" id="select-filter">    
-          <div id="select1"class="input-field col s2">
-             <select id="select" >
-               <option value="" >Elige tu categoria</option>
-                 <option></option>
-                 <option value="Fighter">Luchador</option>
-                 <option value="Mage">Mago</option>
-                 <option value="Assassin">Asesino</option>
-                 <option value="Tank">Tanque</option>
-                 <option value="Marksman">Tirador</option>
-                 <option value="Support">Soporte</option>
-             </select>
-              <label></label>
-          </div>
-        </div>
-      
-        <div class="row" id="select-order">    
-            <div id="select2"class="input-field col s2">
-               <select id="select3">
-                 <option value="" >Ordenar Por:</option>
-                   <option></option>
-                   <option value="a-z">a-z</option>
-                   <option value="z-a">z-a</option>
-                   
-               </select>
-                <label></label>
-            </div>
-          </div>
-
-          <div class="container">
-          </div>
-      
     </div>
-  </div>
+
+
+      <div id="page2">
+        <div id="imagenes"></div>
+          <!-- Page Content goes here -->
+          <div class="container"> 
+            <div class="row">
+                 <div  id="select-filter">    
+                   <div id="select1"class="col s8 m6">
+                     <select id="select"  >
+                       <option value="">Elige tu categoria</option> 
+                      <option value="Fighter">Luchador</option>
+                       <option value="Mage">Mago</option>
+                       <option value="Assassin">Asesino</option>
+                       <option value="Tank">Tanque</option>
+                       <option value="Marksman">Tirador</option>
+                       <option value="Support">Soporte</option>
+                       </select>
+                     </div>
+                   </div>
+      
+                   <div id="select-order">    
+                     <div id="select2"class="col s8 m6">
+                       <select id="select3">
+                        <option value="" selected>Ordenar Por:</option>
+                        <option value="a-z">a-z</option>
+                        <option value="z-a">z-a</option>
+                       </select>
+                      </div>
+                    </div>    
+            </div>
+         </div>
+        </div>
+
+
+      
   
     <div id="root" class="row"></div>
+    <div id="root1" class="row"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="lol.js"></script> 
     <script src="data.js"></script>

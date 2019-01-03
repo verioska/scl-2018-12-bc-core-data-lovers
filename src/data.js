@@ -1,8 +1,8 @@
 const datos= Object.values(LOL.data);
-const datos1=Object.values(LOL.data);
 const imagenfinal=[]
 const imagenfinalZA=[]
 const categoria=[]
+let informacion=[];
 
 
 function filter (datos,condition) {
@@ -18,21 +18,33 @@ function ordenar(datos){
     for(let i=0; i<datos.length; i++){
        resultado.push(datos[i]["id"]); 
        imagenfinal.push(datos[i]["splash"]); 
+       
        } 
 let ordenado = resultado.sort();
 return resultado;
 }
-ordenar(datos);
+
+
 
 function ordenarZA(datos){
     let resultado=[];
    for(let i=0; i<datos.length; i++){
        resultado.push(datos[i]["id"]); 
         imagenfinalZA.push(datos[i].splash);
-   }  
+       
+      }  
 let reverso = resultado.reverse();
 imagenfinalZA.reverse()
+
 return resultado;
 }
-ordenarZA(datos);
 
+function informacion1(datos){
+  
+   for (const i in datos){
+ informacion.push(datos[i].info);
+    
+ console.log(informacion[i]["defence"])
+}
+ return informacion;
+}
