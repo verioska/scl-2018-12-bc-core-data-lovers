@@ -131,7 +131,51 @@ waves-effect.waves-light.btn.modal-trigger{
     
 }
 .link{
- color: cadetblue;
- cursor: pointer;
+    color: cadetblue;
+    cursor: pointer;
 
+}
+.link2{
+    
+    cursor: pointer;
+    float:right;
+    margin-right: 25px;
+    margin-top: 15px;
+    font-size: 30px;
+    color: solid black;
+}
+.card.large {
+    width: 880px;
+    height: auto;
+}
+
+h3,h4{
+    font-size: 24px;
+    color:black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    
+
+}
+#image-info, #info-champion{
+margin: 10px;
+padding: 10px;
+}
+
+
+#image-info, #champion-name{
+    display:inline-block;
+    float: left;
+}
+#champion-name{
+    margin-left: 250px;
+    float: left;
+     
+}
+
+#info-table{
+    width: 400px;
+    height: 250px;
+    float: right;
+    margin-right: 150px ;
 }
