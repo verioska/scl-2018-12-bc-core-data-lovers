@@ -14,10 +14,10 @@ body{
 }
 
 #lol-logo{
-    width: 170px;
-    height: 60px;
-    margin-left: 60px;
-    margin-top: 20px;
+    width: 180px;
+    height: 70px;
+    margin-left: 50px;
+    margin-top: 15px;
     
 }
 
@@ -27,6 +27,7 @@ body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #9C865A;
     margin-right: 60px;
+    margin-bottom: 20px;
 }
 
 h1{
@@ -50,18 +51,18 @@ h1{
 }
 
 #page1-Image{
-    width: 550px;
+    width: 540px;
     height: 272px;
     float: right 100%; 
     margin-top: 40px;
-    margin-left: 140px;
+    margin-left: 160px;
 } 
 
 #start a{
     font-size: 20px;
     color:#9C865A;
     float: right;
-    margin-right: 120px;
+    margin-right: 94px;
     margin-top: 20px;
 }
 
@@ -76,40 +77,61 @@ h1{
     display: none;
 }
 
-#select-order{
-    float: right 100%;
-}
 
-#root{
-    width: 1152px;
-    margin:20px auto;
+#root, #root1{
+    
     color:#9C865A;
 }
 
 input.select-dropdown.dropdown-trigger{
     color:#9C865A;
-    width: 150px;
+    width: 200px;
     margin-left: 5px;
+    font-size: 17px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
    
 
 div.card-image{
     width: 150px;
-    height: 150px;
+    height: 170px;
     
 }
 
-#select-filter{
-    margin-left: 60px;
-    
+.card{
+    border-radius: 15px;
+    margin:8px;
+    margin-bottom: 10px;
+    height: 230px;
+    width: 170px;
     
 }
 
-#select-order{
-    margin-left: 150px;
-} 
+.card .card-reveal {
 
-#select-filter, #select-order{
-    display:inline-block;
+    padding: 12px;
+    top: 107%;
+    height: 110%;
+}
+img.responsive-img{
+    width: 170px;
+    height: 130px;
+}
+
+h2{
+    font-size: 30px;
+    color:#9C865A;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    text-align: center;
+}
+
+waves-effect.waves-light.btn.modal-trigger{
+    background-color: beige;
+    
+}
+.link{
+ color: cadetblue;
+ cursor: pointer;
 
 }

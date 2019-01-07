@@ -1,38 +1,23 @@
 const datos= Object.values(LOL.data);
-const datos1=Object.values(LOL.data);
-const imagenfinal=[]
-const imagenfinalZA=[]
-const categoria=[]
 
-
-function filter (datos,condition) {
-   const categoria=datos.filter(tipos =>{
-    return tipos.tags.indexOf(condition)!==-1;
-    });
-    console.log(categoria)
-    return categoria;
- }
+function filterByRol(datos,condition) {
+     const categoria=datos.filter(tipos =>{
+     return tipos.tags.indexOf(condition)!==-1;
+   });
+  
+ return categoria;
+}
  
-function ordenar(datos){
-    let resultado=[];
-    for(let i=0; i<datos.length; i++){
-       resultado.push(datos[i]["id"]); 
-       imagenfinal.push(datos[i]["splash"]); 
-       } 
-let ordenado = resultado.sort();
-return resultado;
+function ordenar(datos,order){
+  return ( order === "a-z" ? datos.sort() : datos.reverse() );
 }
-ordenar(datos);
 
-function ordenarZA(datos){
-    let resultado=[];
-   for(let i=0; i<datos.length; i++){
-       resultado.push(datos[i]["id"]); 
-        imagenfinalZA.push(datos[i].splash);
-   }  
-let reverso = resultado.reverse();
-imagenfinalZA.reverse()
-return resultado;
+function findChampion(id) {
+  let championInfo;
+  for(let i=0; i<datos.length;i++){
+      if(datos[i].id===id){
+        championInfo=datos[i]
+      }
+  }
+  return championInfo;
 }
-ordenarZA(datos);
-
