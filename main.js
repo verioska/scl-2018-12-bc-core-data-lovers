@@ -1,168 +1,84 @@
 document.addEventListener('DOMContentLoaded', function(){
   M.AutoInit();
 });
-const resultadofuncion=ordenar(datos);
-const resultadofuncionZA=ordenarZA(datos);
-//const resultinfor=informacion1(datos);
+
 
 window.onload =() =>{
 
+  document.getElementById("page3").style.display="none";
 
-document.getElementById("start").addEventListener("click",
-(event) => {
-event.preventDefault();
-
-document.getElementById("page1").style.display="none";
-document.getElementById("page2").style.display="block";
-document.getElementById('root1').innerHTML=''
-
-for (let i = 0; i < resultadofuncion.length; i++) {
-  
-  
- document.getElementById('root1').innerHTML += `
-  <div class="col s2 m2" >
-    <div class="card">
-      <img class="responsive-img" src="${imagenfinal[i]}" >
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-2"><h6>${resultadofuncion[i]}</h6><i class="material-icons right">more_vert</i></span>
-       </div>
-      <div class="card-reveal">
-       <span class="card-title grey-text text-darken-4">${resultadofuncion[i]}<i class="material-icons right">close</i></span>
-       <p> Ataque: ${ informacionPer(datos)[i]}</p>
-       <p> Defensa: ${ infoDefene(datos)[i]}</p>
-       <p> Magia: ${ infoMagic(datos)[i]}</p>
-       <p> Dificultad: ${ infodifficulty(datos)[i]}</p>
-      
-    </div>
-  </div>`  
-}
-})
-
-
-//  <div class="card ">
-//  <div class="col s2 m2">
-
-//    <div class="card-image">
-//      <img class="responsive-img" src="${imagenfinal[i]}" alt="" HSACE="500" VSPACE="20" width="550" >
-//    </div>
-//    <div class="card-title center"">
+  document.getElementById("start").addEventListener("click",
+  (event) => {
+    event.preventDefault();
+    document.getElementById("page1").style.display="none";
+    document.getElementById("page2").style.display="block";
     
-//      <span class="card-title center">${resultadofuncion[i]}</span>
-    
-//    </div>
-//  </div>
-// </div>
-document.getElementById('select').addEventListener("change",()=>{
-  document.getElementById("root1").style.display="none";
-  
-  document.getElementById('root').innerHTML=''
- let condicion=document.getElementById('select').value;
-  for(let i=0; i<filter(datos,condicion).length;i++){
-      document.getElementById('root').innerHTML +=`
-      <div class="col s2 m2" >
+    showCards(datos);
+  })
+
+  function showCards(datos) {
+    document.getElementById('championsList').innerHTML = '';
+    for (let i = 0; i < datos.length; i++) {
+      document.getElementById('championsList').innerHTML += `
+      <div class="col s6 m3" >
         <div class="card">
-          <img class="responsive-img" src="${filter(datos,condicion)[i]["splash"]}" >
+          <img class="imagen-lol responsive-img" src="${datos[i].splash}" >
             <div class="card-content">
-              <span class="card-title activator grey-text text-darken-2"><h6>${filter(datos,condicion)[i]["id"]}</h6><i class="material-icons right">more_vert</i></span>
-           </div>
+              <span class="card-title activator grey-text text-darken-2"><h6>${datos[i].name}</h6><i class="material-icons right">more_vert</i></span>
+            </div>
           <div class="card-reveal">
-           <span class="card-title grey-text text-darken-4">${filter(datos,condicion)[i]["id"]}<i class="material-icons right">close</i></span>
-           <p> Ataque:</p>
-           <p> Defensa: </p>
-           <p> Magia: </p>
-           <p> Dificultad: </p>
-          
+            <span class="card-title grey-text text-darken-4">${datos[i].name}<i class="material-icons right">close</i></span>
+            <p> Ataque: ${ datos[i].info.attack }</p>
+            <p> Defensa: ${ datos[i].info.defense }</p>
+            <p> Magia: ${ datos[i].info.magic }</p>
+            <p> Dificultad: ${ datos[i].info.difficulty }</p>
+            <span class="link" data-champion='${datos[i].id}'>Ver mas</span>
         </div>
-      </div>` 
-
- }
-});
-
-
-// `
-//       <div class="card ">
-//       <div class="col s2 m2">
-     
-//         <div class="card-image">
-//           <img class="responsive-img" src="${filter(datos,condicion)[i]["splash"]}" alt="" HSACE="10" VSPACE="20" width="10" >
-//         </div>
-//         <div class="card-title center"">
-          
-//           <span class="card-title center">${filter(datos,condicion)[i]["id"]}</span>
-          
-//         </div>
-//       </div>
-//     </div> `
-
-
-document.getElementById('select3').addEventListener("change",()=>{
-  document.getElementById('root').innerHTML=''
-  document.getElementById("root1").style.display="none";
-
-if(document.getElementById('select3').value==="a-z" ){
-document.getElementById('root').innerHTML=''
-  for (let i = 0; i < resultadofuncion.length; i++) {
-   // for (let i = 0; i < imagenfinal.length; i++) {
-   // document.getElementById('root').innerHTML += ' ' + resultadofuncion[i] + ' '; // imprimo en el HTML cada nombre que está dentro de cada posición del arreglo.
-   document.getElementById('root').innerHTML += 
-   `
-     <div class="col s2 m2" >
-       <div class="card">
-         <img class="responsive-img" src="${imagenfinal[i]}" >
-           <div class="card-content">
-             <span class="card-title activator grey-text text-darken-2"><h6>${resultadofuncion[i]}</h6><i class="material-icons right">more_vert</i></span>
+      </div>`  
+    }
+    const links = document.getElementsByClassName('link');
+    for (let i = 0; i < links.length; i++) {
+      links[i].addEventListener('click', (event) => {
+        event.preventDefault();
+        const id = event.srcElement.dataset.champion;
+        showDetail(id);
+      });
+    }
+  }
+  function showDetail(id) {
+    document.getElementById("page2").style.display="none";
+    document.getElementById("page3").style.display="block";
+    let championDetail = findChampion(id);
+    document.getElementById("championDetail").innerHTML += `
+  <div class="col s6 m3" >
+      <div class="card">
+        <img class="imagen-lol responsive-img" src="${championDetail.splash}" >
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-2"><h6>${championDetail.name}</h6><i class="material-icons right">more_vert</i></span>
           </div>
-         <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">${resultadofuncion[i]}<i class="material-icons right">close</i></span>
-          <p> Ataque: ${ informacionPer(datos)[i]}</p>
-          <p> Defensa: ${ infoDefene(datos)[i]}</p>
-          <p> Magia: ${ infoMagic(datos)[i]}</p>
-          <p> Dificultad: ${ infodifficulty(datos)[i]}</p>
-         
-       </div>
-     </div>`  
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">${championDetail.name}<i class="material-icons right">close</i></span>
+          <p> Ataque: ${ championDetail.info.attack }</p>
+          <p> Defensa: ${ championDetail.info.defense }</p>
+          <p> Magia: ${ championDetail.info.magic }</p>
+          <p> Dificultad: ${ championDetail.info.difficulty }</p>
+          <span class="link" data-champion='${championDetail.id}'>Ver mas</span>
+      </div>
+    </div>`  
+  }
  
-}
-}
+  document.getElementById('selectRol').addEventListener("change",()=>{
+    let rol=document.getElementById('selectRol').value;
+    let data=filterByRol(datos,rol);
+    showCards(data);   
+  });
 
-else if(document.getElementById('select3').value==="z-a"){
-  document.getElementById('root').innerHTML=''
-for (let i = 0; i < resultadofuncionZA.length; i++) {
-  // for (let i = 0; i < imagenfinal.length; i++) {
-  // document.getElementById('root').innerHTML += ' ' + resultadofuncion[i] + ' '; // imprimo en el HTML cada nombre que está dentro de cada posición del arreglo.
-  document.getElementById('root').innerHTML += `
-  <div class="col s2 m2" >
-    <div class="card">
-      <img class="responsive-img" src="${imagenfinalZA[i]}" >
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-2"><h6>${resultadofuncionZA[i]}</h6><i class="material-icons right">more_vert</i></span>
-       </div>
-      <div class="card-reveal">
-       <span class="card-title grey-text text-darken-4">${resultadofuncionZA[i]}<i class="material-icons right">close</i></span>
-       <p> Ataque: </p>
-       <p> Defensa: </p>
-       <p> Magia: </p>
-       <p> Dificultad: </p>
-      
-    </div>
-  </div>`  
-}
-}
-});
+  document.getElementById('selectOrder').addEventListener("change",()=>{
+    
+    let order=document.getElementById('selectOrder').value;
+    let data=ordenar(datos,order);
+    showCards(data);
+  });
 
-}
-// `
-//   <div class="card ">
-//   <div class="col s2 m2">
- 
-//     <div class="card-image">
-//       <img class="responsive-img" src="${imagenfinalZA[i]}" alt="" HSACE="500" VSPACE="20" width="550" >
-//     </div>
-//     <div class="card-title center"">
-      
-//       <span class="card-title center">${resultadofuncionZA[i]}</span>
-      
-//     </div>
-//   </div>
-// </div>
-// `
+  
+};
