@@ -55,7 +55,7 @@ h1{
     background-color: #19191C;
     margin-top: 20px;
     padding: 30px;
-    position: fixed 100%;
+    
 } 
 
 #page2{
@@ -207,10 +207,10 @@ ul#menu-responsive.sidenav{
 
 }
 
-div.col.l9{
+/*div.col.l9{
     margin-top: 30px;
     margin-left: 20px;
-}
+}*/
 
 /*@media only screen and (max-width : 400px) {
 
