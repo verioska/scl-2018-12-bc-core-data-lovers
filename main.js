@@ -21,7 +21,7 @@ window.onload =() =>{
     document.getElementById('championsList').innerHTML = '';
     for (let i = 0; i < data.length; i++) {
       document.getElementById('championsList').innerHTML += `
-      <div class="container" style="width: 120%">  
+      <div class="container" style="width: 100%">  
       <div class="col s6 m3 l3" >
           <div class="card">
             <img class="imagen-lol responsive-img" src="${data[i].splash}" >
@@ -268,7 +268,7 @@ for(let k=0; k<listAverage.length;k++){
   const average=listAverage[k];  
 
   document.getElementById("root").innerHTML+=`
-  <section class="container" style="width:110%">
+  <section class="container" style="width:90%">
         <div class="row" >
           <div class="col s6 m3 l3">
             <img class="responsive-image" src="${image[k]}" > 
@@ -462,10 +462,10 @@ for(let k=0; k<listAverage.length;k++){
     document.getElementById('championsList').innerHTML = '';
     for (let i = 0; i < data.length; i++) {
       document.getElementById('championsList').innerHTML += `
-      <div class="container" style="width: 120%">  
-      <div class="col s6 m3 l3" >
+      <div class="container" style="width: 100%">  
+      <div class="card col s6 m3 l3>
           <div class="card">
-            <img class="imagen-lol responsive-img" src="${data[i].splash}" >
+            <img id="imagen-lol" class="responsive-img" src="${data[i].splash}" >
             <div class="card-content">
               <span class="card-title activator grey-text text-darken-2"><h6>${data[i].name}</h6><i class="material-icons right">more_vert</i></span>
             </div>
@@ -703,7 +703,7 @@ for(let k=0; k<listAverage.length;k++){
   const average=listAverage[k];  
 
   document.getElementById("root").innerHTML+=`
-  <section class="container" style="width:110%">
+  <section class="container" style="width:100%">
         <div class="row" >
           <div class="col s6 m3 l3">
             <img class="responsive-image" src="${image[k]}" > 
