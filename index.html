@@ -3,31 +3,57 @@
   <head>
     <meta charset="utf-8">
     <title>Data Lovers</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="style.css" />
-  </head>
+
+    
+    </head>
 
   <body>
-    <header>
-     <nav class="menu">
-        <div class="nav-wrapper">
+
+ 
+      <nav class="nav-wrapper">
+          <div class="container">
+       
           <a href="#" class="brand-logo"><img id="lol-logo"src="http://i.picasion.com/pic88/b5ff07cb77c0782ac41329acbd770506.gif"alt=""></a>
+
+          <a href="#" data-target="menu-responsive" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="" id="champions">Inicio</a></li>
-            <li><a href="">Estadisticas</a></li>
+            <li><a href="" id="inicio">Inicio</a></li>
+            <li> <a id="estadistica">Estadisticas</a></li>
+            <li> <a id="champions">Campeones</a></li>
             <li><a href="https://las.leagueoflegends.com/es/game-info/">Más de Lol</a></li>
             <li><a href="https://play.las.leagueoflegends.com/es_AR">Unete a Lol</a></li>
           </ul>
-        </div>
-      </nav>
-    </header>
 
+          
+
+          </div>
+      </nav>
+
+        <ul class="sidenav" id="menu-responsive">
+          <li><a href="" id="inicio">Inicio</a></li>
+          <li> <a id="estadistica">Estadisticas</a></li>
+          <li> <a id="champions">Campeones</a></li>
+          <li><a href="https://las.leagueoflegends.com/es/game-info/">Más de Lol</a></li>
+          <li><a href="https://play.las.leagueoflegends.com/es_AR">Unete a Lol</a></li>
+        </ul>
+
+    
+
+    
+  
+    <div class="container">
+      <div class="row">
+      
     <div id="page1">
       <h1>Bienvenidos a Lol</h1>
+
+      <div class="row">
       <div id="text">
-        <p id="text-page1">League of Legends es un juego de competencia en línea,</br>
+        <p id="text-page1" class="col s12 m5 ">League of Legends es un juego de competencia en línea,</br>
           fusiona velocidad, intensidad y estrategia. ¡Todo en tiempo real! </br>
           Te entregaremos todos los datos necesarios de los</br> 
           campeones para que estés preparado para comenzar el juego.</br>
@@ -37,21 +63,28 @@
           Comienza ahora a explorar este fantástico mundo! 
         </p>
       </div>
+
       <div>
-        <img id="page1-Image" src="http://i.picasion.com/pic88/4a863cd09ca44c58e4a4891c516bbd7c.gif" alt="">
+        <img id="page1-Image" class="col s12 m7 " src="http://i.picasion.com/pic88/4a863cd09ca44c58e4a4891c516bbd7c.gif" alt="">
       </div>
+
+    </div>
+  
       <div id="start">
         <a class="waves-effect waves-teal btn-flat">Comenzar</a>
       </div>
-    </div>
 
+    </div>
+ 
+ 
     <div class="container">
       <div id="page2">
+          <div class="row">
         <h2> Campeones</h2>
         <div id="imagenes"></div>
-        <div class="row">
+        
           <div  id="select-filter">    
-            <div id="select1"class="col s12 m6">
+            <div id="select1"class="col s12 m6 l6">
               <select id="selectRol"  >
                 <option value="">Elige tu categoria</option> 
                 <option value="Fighter">Luchador</option>
@@ -64,7 +97,7 @@
             </div>
           </div>
           <div id="select-order">    
-            <div id="select2"class="col s12 m6">
+            <div id="select2"class="col s12 m6 l6">
               <select id="selectOrder">
                 <option value="" selected>Ordenar Por:</option>
                 <option value="a-z">a-z</option>
@@ -73,8 +106,11 @@
             </div>
           </div>    
         </div>
-        <div id="championsList" class="row"></div>
+        <div id="championsList"></div>
       </div>
+
+
+
       <div id="page3">
         <div id="championDetail" class="row">
           <h1>Detalle del campeon</h1>
@@ -82,8 +118,13 @@
       </div>
     </div>
 
-    <footer class="page-footer">
-      <div class="footer-copyright">
+    <div id="page4">
+    
+    </div>
+
+    <div id="root" class="row"></div>
+
+    <footer id="footer">
         <div class="container">
           © 2018 Copyright Text
           <a class="grey-text text-lighten-4 right" href="https://universe.leagueoflegends.com/es_ES/">Universo Lol</a>
@@ -91,9 +132,24 @@
       </div>
     </footer>
 
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+    
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems);
+    });
+    </script>
+
+    
+
     <script src="lol.js"></script> 
     <script src="data.js"></script>
     <script src="main.js"></script>
+
+    
   </body>
 </html>
