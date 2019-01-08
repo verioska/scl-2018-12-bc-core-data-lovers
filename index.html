@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Lovers</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -14,7 +15,7 @@
 
  
       <nav class="nav-wrapper">
-          <div class="container">
+        <div class="container">
        
           <a href="#" class="brand-logo"><img id="lol-logo"src="http://i.picasion.com/pic88/b5ff07cb77c0782ac41329acbd770506.gif"alt=""></a>
 
@@ -22,42 +23,43 @@
 
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="" id="inicio">Inicio</a></li>
-            <li> <a id="estadistica">Estadisticas</a></li>
+            <li> <a id="stats">Estadisticas</a></li>
             <li> <a id="champions">Campeones</a></li>
             <li><a href="https://las.leagueoflegends.com/es/game-info/">Más de Lol</a></li>
             <li><a href="https://play.las.leagueoflegends.com/es_AR">Unete a Lol</a></li>
           </ul>
-
           
-
-          </div>
-      </nav>
+        </div>
 
         <ul class="sidenav" id="menu-responsive">
-          <li><a href="" id="inicio">Inicio</a></li>
-          <li> <a id="estadistica">Estadisticas</a></li>
-          <li> <a id="champions">Campeones</a></li>
+            <li><a href="" id="inicio">Inicio</a></li>
+            <li> <a  id="stats-1">Estadisticas</a></li>
+            <li> <a id="champions-1">Campeones</a></li>
           <li><a href="https://las.leagueoflegends.com/es/game-info/">Más de Lol</a></li>
           <li><a href="https://play.las.leagueoflegends.com/es_AR">Unete a Lol</a></li>
+
+          
+          
         </ul>
 
-    
+      </nav>
 
-    
-  
-    <div class="container">
+      
+
+      
+    <div class= container style= "width: 90%">
       <div class="row">
       
     <div id="page1">
       <h1>Bienvenidos a Lol</h1>
 
-      <div class="row">
-      <div id="text">
-        <p id="text-page1" class="col s12 m5 ">League of Legends es un juego de competencia en línea,</br>
-          fusiona velocidad, intensidad y estrategia. ¡Todo en tiempo real! </br>
+     
+      <div id="text" class="col s12 m6 l6">
+        <p id="text-page1" ></p>League of Legends es un juego de competencia en línea,</br>
+          fusiona velocidad, intensidad y estrategia. ¡Todo en tiempo real!</br></br>
           Te entregaremos todos los datos necesarios de los</br> 
-          campeones para que estés preparado para comenzar el juego.</br>
-          Aquí podrás encontrar:</br>
+          campeones para que estés preparado para comenzar el juego.</br></br>
+          Aquí podrás encontrar:</br></br>
           Fotografías, Historias, Caracteristicas, Categorías, Estadísticas </br>
           del juego y mucho más...</br>
           Comienza ahora a explorar este fantástico mundo! 
@@ -65,7 +67,7 @@
       </div>
 
       <div>
-        <img id="page1-Image" class="col s12 m7 " src="http://i.picasion.com/pic88/4a863cd09ca44c58e4a4891c516bbd7c.gif" alt="">
+        <img id="page1-image"src="http://i.picasion.com/pic88/4a863cd09ca44c58e4a4891c516bbd7c.gif"  class="responsive-img col s12 m6 l6" alt="Imagen lol">
       </div>
 
     </div>
@@ -125,26 +127,14 @@
     <div id="root" class="row"></div>
 
     <footer id="footer">
-        <div class="container">
+        <div class="container" style="width: 100%">
           © 2018 Copyright Text
           <a class="grey-text text-lighten-4 right" href="https://universe.leagueoflegends.com/es_ES/">Universo Lol</a>
         </div>
       </div>
     </footer>
 
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-    <script>
-    
-    document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems);
-    });
-    </script>
-
-    
 
     <script src="lol.js"></script> 
     <script src="data.js"></script>
