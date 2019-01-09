@@ -22,7 +22,8 @@ window.onload =() =>{
     for (let i = 0; i < data.length; i++) {
       document.getElementById('championsList').innerHTML += `
       <div class="container" style="width: 100%">  
-      <div class="col s6 m3 l3" >
+      <div class="row">
+      <div class="col s12 l4" >
           <div class="card">
             <img class="imagen-lol responsive-img" src="${data[i].splash}" >
             <div class="card-content">
@@ -37,6 +38,7 @@ window.onload =() =>{
               <span class="link" data-champion='${data[i].id}'>Ver mas</span>
             </div>
           </div>
+        </div>
         </div>
         </div> ` 
      }
