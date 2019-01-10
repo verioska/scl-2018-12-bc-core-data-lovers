@@ -54,15 +54,16 @@ window.onload =() =>{
     document.getElementById("page3").style.display="block";
     let championDetail = findChampion(id);
     document.getElementById("champions-detail").innerHTML = `
-      <div class="card large ">
+      <div class="card large">
         <div>
           <span class="link2" data-champion='${championDetail.id}'>X</span>
           <img id="image-info" class="imagen-lol responsive-img" src="${championDetail.splash}">
           <div id="champion-name">
             <h3>${championDetail.name}</h3>
-            <p>${championDetail.partype}<p>
+            <p id="champions-n">${championDetail.partype}<p>
           </div>
          </div>
+
        <section class="container" style="width:95%">
           <div class="row" >
             <div class="col l12">
@@ -79,7 +80,8 @@ window.onload =() =>{
                 <div class="col l6" id="mp">${championDetail.stats.mp}</div>
               </div>
             </div>
-            <div class="col l3" > 
+
+            <div class="col s6 l3" > 
               <div class="row">
                 <div class="col l6">Spell block per level</div>
                 <div class="col l6" id="spellblockperlevel">${championDetail.stats.spellblockperlevel}</div>
@@ -92,6 +94,7 @@ window.onload =() =>{
               </div>
             </div>
           </div>
+          <hr/>
           <div class="row">
               <div class="col l3">
               <div class="row">
@@ -118,6 +121,7 @@ window.onload =() =>{
               </div>
             </div>
           </div>
+          <hr/>
           <div class="row">
             <div class="col l3" >
               <div class="row">
@@ -144,6 +148,7 @@ window.onload =() =>{
               </div>
             </div>
           </div>
+        <hr/>
           <div class="row">
             <div class="col l3">
               <div class="row">
@@ -170,6 +175,7 @@ window.onload =() =>{
               </div>
             </div>
           </div>
+          <hr/>
           <div class="row">
               <div class="col l3" >
               <div class="row">
@@ -196,9 +202,10 @@ window.onload =() =>{
               </div>
             </div>
           </div>
+          <hr/>
           <div class="row">
-              
-            <div class="col l3">
+         <hr/>     
+        <div class="col l3">
               <div class="row">
                 <div class="col l6">HP per level</div>
                 <div class="col l6" id="hpperlevel">${championDetail.stats.hpperlevel}</div>
@@ -456,7 +463,7 @@ for(let k=0; k<listAverage.length;k++){
        </div>
      </div>
    </section>
-      
+   <hr/>   
  `
 }
   }
@@ -493,8 +500,6 @@ for(let k=0; k<listAverage.length;k++){
   document.getElementById("page4").style.display="block";
   showStats(data);
   });
-
-
 
 };
 
