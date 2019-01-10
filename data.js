@@ -44,41 +44,42 @@ function findChampion(id) {
 }
 
 function computeStats(datos) {
-  let tag=["Assassin","Fighter","Mage","Marksman","Support","Tank"];      
-  let list_tag=[];
-  
-  for (let m=0;m<tag.length; m++){
-      let name= tag[m];
-      let categoria=filterData(datos,name);
-      let p=0;
-      let list= [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];    
-      
-      for (let i=0;i<categoria.length; i++){ //en algun momento i será la cantidad maxima de campeones
-          
-          let champion=categoria[i] //objeto  
-          
-          const information1 = ((champion || {}).info); //objeto
-          const information= Object.entries(information1); //array
-          
-          const statics1=((champion || {}).stats); //objeto
-          const statics= Object.entries(statics1); //array   
+    let tag=["Assassin","Fighter","Mage","Marksman","Support","Tank"];      
+    let list_tag=[];
+    
+    for (let m=0;m<tag.length; m++){
+        let name= tag[m];
+        let categoria=filterData(datos,name);
+        let p=0;
+        let list= [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];    
+        
+        for (let i=0;i<categoria.length; i++){ //en algun momento i será la cantidad maxima de campeones
+            
+            let champion=categoria[i] //objeto  
+            
+            const information1 = ((champion || {}).info); //objeto
+            const information= Object.entries(information1); //array
+            
+            const statics1=((champion || {}).stats); //objeto
+            const statics= Object.entries(statics1); //array   
 
-          for (let j=0;j<4;j++){
-              let n=information[j][1];
-              list[j]+=n;                         
-          }
-          for (let j=4;j<20;j++){
-              let n=statics[j][1];
-              list[j]+=n;            
-          }
-          p+=1;        
-      }
-      for (let j=0;j<list.length;j++){
-          let n= list[j]/p;        
-          let t=n.toFixed(2);
-          list[j]= t;      
-      }           
-      list_tag.push(list);
-  }
-  return list_tag;
+            for (let j=0;j<4;j++){
+                let n=information[j][1];
+                list[j]+=n;                         
+            }
+            for (let j=4;j<20;j++){
+                let n=statics[j][1];
+                list[j]+=n;            
+            }
+            p+=1;        
+        }
+        for (let j=0;j<list.length;j++){
+            let n= list[j]/p;        
+            let t=n.toFixed(2);
+            list[j]= t;      
+        }           
+        list_tag.push(list);
+    }
+    console.log(list_tag);
+    return list_tag;
 }

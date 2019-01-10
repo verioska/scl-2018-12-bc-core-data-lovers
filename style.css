@@ -3,68 +3,77 @@ body{
 }
 
 .nav-wrapper{
-    height: 100px;
     background-color: #19191C;
 }
 
 #lol-logo{
-    width: 180px;
-    height: 70px;
-    margin-top: 15px;
+    width: 140px;
+    height: 45px;
+    margin-left: 40px;
+    margin-top: 7px;
 }
 
-#nav-mobile li a{   
+.nav-wrapper li a{   
     font-size: 20px;
-    padding: 20px;
+    padding:10px 20px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: #9C865A;    
+    color: #9C865A;
+    
 }
 
 h1{
-    font-size:19px;
+    font-size: 24px;
     color:#D0BFD8;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
+
 }
 
-#text-page1{
+#text.col.s12.m6.l6{
     font-size: 18px ;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
-    color:#D0BFD8;   
+    color:#D0BFD8;
     margin-top: 20px;
-    margin-left: 80px;
 }
 
-#page1-image{
-    width: 530px;
-    height:300px;
-    margin-top: 20px;
-    margin-left:20px;
-} 
+#page-image.responsive-img.col.s12.m6.l6{
+    
+    height: 250px;
+    margin-top:20px;
+}
+
+#start{
+    float: right;
+    margin:-20px;
+    margin-right: 20px;
+    background-color: #9C865A;
+    border-radius: 5px;
+    width: 130px;
+    text-align: center;
+}
 
 #start a{
-    font-size: 20px;
-    color:#9C865A;
-    float: right;
-    margin-right: 60px;
-    margin-top: 20px;
+    color:#D0BFD8;
+    
 }
 
-#footer{
-    height: 70px;
+.page-footer{
+    height: 60px;
     background-color: #19191C;
-    margin-top: 20px;
-    padding: 30px;
-    
+    margin: 10px;
+    margin-top: 40px; 
 } 
 
 #page2{
     display: none;
-    
+}
+#page4{
+    display: none;
 }
 
 
-#root{
+#root, #root1{
+    
     color:#9C865A;
 }
 
@@ -86,21 +95,21 @@ div.card-image{
 
 .card{
     border-radius: 15px;
-    margin:15px;
+    margin:8px;
     margin-bottom: 10px;
     height: 230px;
-    width: 160px;
+    width: 170px;
     
 }
 
 .card .card-reveal {
+
     padding: 12px;
     top: 107%;
     height: 110%;
 }
-
 img.responsive-img{
-    width: 160px;
+    width: 170px;
     height: 130px;
 }
 
@@ -111,16 +120,15 @@ h2{
     text-align: center;
 }
 
-waves-effect.waves-light.btn.modal-trigger{
+.waves-effect.waves-light.btn.modal-trigger{
     background-color: beige;
     
 }
-
 .link{
- color: cadetblue;
- cursor: pointer;
-}
+    color: cadetblue;
+    cursor: pointer;
 
+}
 .link2{
     
     cursor: pointer;
@@ -133,34 +141,33 @@ waves-effect.waves-light.btn.modal-trigger{
 .card.large {
     width: 880px;
     height: auto;
-    background-color:rgb(238, 234, 225);
 }
 
 h3,h4{
-    font-size: 30px;
-    color:#0A0A0C;
+    font-size: 24px;
+    color:black;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
+    
+
 }
-
-
 #image-info, #info-champion{
-    margin: 10px;
-    padding: 10px;
+margin: 10px;
+padding: 10px;
 }
 
-#image-info{
-    width:250px;
-    height:250px;
-}
+
 
 #image-info, #champion-name{
     float: left;
-  
-}
-#champion-name{
+  }
+ #champion-name{
     margin-left: 250px;
-}
+ }
+ 
+
+
+
 
 #info-table{
     width: 400px;
@@ -169,103 +176,12 @@ h3,h4{
     margin-right: 150px ;
 }
 
-#page4{
-    display: none;
-}
-
-#cuadro1 {
-    display: inline-block; 
-    border: 2px solid #D0BFD8;
-}
-
-.row{
-    grid-row-gap: -10px;
-    color:#9C865A;
-    
-}
-
-#result-table{
-    color: #D0BFD8;
+.sidenav-overlay{
+    z-index: 995;
 }
 
 .responsive-image{
-    width:230px;
-    height:230px;
-    margin-top:30px;
-    
-}
-
-ul#menu-responsive.sidenav{
-    background-color: #19191C;
     width: 200px;
-}
-
-#menu-responsive.sidenav li a{
-    color: #9C865A;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 15px;
+    height:200px;
 
 }
-
-/*div.col.l9{
-    margin-top: 30px;
-    margin-left: 20px;
-}*/
-
-/*@media only screen and (max-width : 400px) {
-
-#lol-logo{
-
-    width: 150px;
-    height: 50px;
-    margin-left: 10px;
-}
-
-#page1-image{
-    width: 400px;
-    height: 200px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#start a{
-    font-size: 15px;
-    color:#9C865A;
-    float: right;
-    margin-right: 20px;
-    margin-top: 20px;
-}
-
-#text-page1{
-    font-size: 18px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.nav-wrapper{
-    margin: 10px auto;
-}  
-
-img.responsive-img{
-    width: 120px;
-    height:80px;
-}
-
-.card{
-    border-radius: 15px;
-    margin:15px;
-    margin-bottom: 10px;
-    height: 180px;
-    width: 120px;
-}
-
-.responsive-image{
-    width:100px;
-    height:100px;
-    margin-top:30px;
-}
-
-
- }*/
- 
- 
