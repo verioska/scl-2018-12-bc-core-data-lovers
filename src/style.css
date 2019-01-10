@@ -3,32 +3,22 @@ body{
     background-color: #0A0A0C;
 }
 
-.menu{
-    
-    height: 100px;
-    margin:10px auto;
-}
-
 .nav-wrapper{
     background-color: #19191C;
-    
 }
 
 #lol-logo{
-    width: 180px;
-    height: 70px;
-    margin-left: 50px;
-    margin-top: 15px;
-    
+    width: 140px;
+    height: 45px;
+    margin-left: 40px;
+    margin-top: 7px;
 }
 
-#nav-mobile li a{   
+.nav-wrapper li a{   
     font-size: 20px;
     padding:10px 20px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #9C865A;
-    margin-right: 60px;
-    margin-bottom: 20px;
 }
 
 h1{
@@ -38,49 +28,48 @@ h1{
     text-align: center;
 }
 
-#text-page1{
+#text.col.s12.m6.l6{
     font-size: 18px ;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
     color:#D0BFD8;
-   
+    margin-top: 20px;
 }
 
-#text{
-    margin-left: 110px;
-    margin-top: 40px;
-    float:left;
+#page-image.responsive-img.col.s12.m6.l6{
+    
+    height: 250px;
+    margin-top:20px;
 }
 
-#page1-Image{
-    width: 540px;
-    height: 272px;
-    float: right 100%; 
-    margin-top: 40px;
-    margin-left: 160px;
-} 
+#start{
+    float: right;
+    margin-right: 20px;
+    background-color: #9C865A;
+    border-radius: 5px;
+    width: 130px;
+    text-align: center;
+}
 
 #start a{
-    font-size: 20px;
-    color:#9C865A;
-    float: right;
-    margin-right: 94px;
-    margin-top: 20px;
+    color:#D0BFD8;
 }
 
 .page-footer{
     height: 60px;
     background-color: #19191C;
     margin: 10px;
-    margin-top: 40px;
+    margin-top: 40px; 
 } 
 
 #page2{
     display: none;
 }
 
+#page4{
+    display: none;
+}
 
-#root, #root1{
-    
+#root{
     color:#9C865A;
 }
 
@@ -92,12 +81,10 @@ input.select-dropdown.dropdown-trigger{
     margin-top: 20px;
     margin-bottom: 20px;
 }
-   
 
 div.card-image{
     width: 150px;
     height: 170px;
-    
 }
 
 .card{
@@ -106,34 +93,34 @@ div.card-image{
     margin-bottom: 10px;
     height: 230px;
     width: 170px;
-    
 }
 
 .card .card-reveal {
-
     padding: 12px;
     top: 107%;
     height: 110%;
 }
+
 img.responsive-img{
     width: 170px;
     height: 130px;
 }
 
 h2{
-    font-size: 30px;
+    font-size: 28px;
     color:#9C865A;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
     text-align: center;
 }
 
-waves-effect.waves-light.btn.modal-trigger{
-    background-color: beige;
-    
+.waves-effect.waves-light.btn.modal-trigger{
+    background-color:#9C865A;
 }
+
 .link{
     color: cadetblue;
     cursor: pointer;
+<<<<<<< HEAD
 
 }
 .link2{
@@ -174,9 +161,108 @@ padding: 10px;
      
 }
 
+=======
+}
+
+.link2{
+    cursor: pointer;
+    float:right;
+    margin-right: 25px;
+    margin-top: 15px;
+    font-size: 30px;
+    color: solid black;
+}
+
+.card.large {
+    width: 880px;
+    height: auto;
+    margin:40px;
+    margin-left:-10%;
+}
+
+h3{
+    font-size: 24px;
+    color:black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
+
+#image-info, #info-champion{
+margin: 10px;
+padding: 10px;
+}
+
+#image-info, #champion-name{
+    float: left;
+}
+
+ #champion-name{
+    margin-left: 250px;
+}
+ 
+>>>>>>> johanna/master
 #info-table{
     width: 400px;
     height: 250px;
     float: right;
     margin-right: 150px ;
 }
+<<<<<<< HEAD
+=======
+
+.sidenav-overlay{
+    z-index: 995;
+}
+
+.responsive-image{
+    width: 200px;
+    height:200px;
+    margin-top:40px;
+}
+
+div.col.l9{
+    margin-top: 40px;
+}
+
+#result-table{
+    color:#D0BFD8;
+}
+
+@media only screen
+and (max-width : 480px) {
+    .card.large { 
+        width:320px;
+        margin-left:3%;
+    }
+    
+    #champion-name {
+        font-size:18px;
+        margin-left:0%;
+    }
+
+    h4{
+        font-size:18px;
+    }        
+    span.link2{
+        font-size: 15px;
+        margin-right: 15px;
+        margin-top:10px
+    }
+    h2{
+        font-size: 20px;
+    }
+    img.responsive-image{
+        width: 150px;
+        height:150px;
+        margin-top:20px;
+    }
+}
+
+@media only screen
+and (min-width: 480px)and(max-width: 767px) {
+    .card.large { 
+        width:400px;
+        margin-left:-60%;
+    }
+}
+>>>>>>> johanna/master
