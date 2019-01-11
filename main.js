@@ -9,33 +9,33 @@ window.onload =() =>{
 
   document.getElementById("start").addEventListener("click",
   (event) => {
-    event.preventDefault();
-    document.getElementById("page1").style.display="none";
-    document.getElementById("page2").style.display="block";
-    document.getElementById("page4").style.display="none";
-    showCards(data);
-  })
+  event.preventDefault();
+  document.getElementById("page1").style.display="none";
+  document.getElementById("page2").style.display="block";
+  document.getElementById("page4").style.display="none";
+  showCards(data);
+})
  
   function showCards(data) {
-    document.getElementById("page3").style.display="none";
+  document.getElementById("page3").style.display="none";
     
-    document.getElementById('root').innerHTML='';
-    document.getElementById('champions-list').innerHTML = '';
+  document.getElementById('root').innerHTML='';
+  document.getElementById('champions-list').innerHTML = '';
     for (let i = 0; i < data.length; i++) {
-      document.getElementById('champions-list').innerHTML += `
-        <div class="col s6 m3" >
-          <div class="card">
-            <img class="imagen-lol responsive-img" src="${data[i].splash}" >
-            <div class="card-content">
-              <span class="card-title activator grey-text text-darken-2"><h6>${data[i].name}</h6><i class="material-icons right">more_vert</i></span>
+  document.getElementById('champions-list').innerHTML += `
+    <div class="col s6 m3" >
+      <div class="card">
+        <img class="imagen-lol responsive-img" src="${data[i].splash}" >
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-2"><h6>${data[i].name}</h6><i class="material-icons right">more_vert</i></span>
             </div>
             <div class="card-reveal">
              <span class="card-title grey-text text-darken-4">${data[i].name}<i class="material-icons right">close</i></span>
-             <p> Ataque: ${ data[i].info.attack }</p>
-              <p> Defensa: ${ data[i].info.defense }</p>
-              <p> Magia: ${ data[i].info.magic }</p>
-              <p> Dificultad: ${ data[i].info.difficulty }</p>
-              <span class="link" data-champion='${data[i].id}'>Ver mas</span>
+             <p> Attack: ${ data[i].info.attack }</p>
+              <p> Defense: ${ data[i].info.defense }</p>
+              <p> Magic: ${ data[i].info.magic }</p>
+              <p> Difficulty: ${ data[i].info.difficulty }</p>
+              <span class="link" data-champion='${data[i].id}'>Ver más...</span>
             </div>
           </div>
         </div> ` 
@@ -65,7 +65,7 @@ window.onload =() =>{
          </div>
 
        <section class="container" style="width:95%">
-          <div class="row" >
+          <div class="row">
             <div class="col l12">
               <div class="row">
                 <div   class="col l3" >
@@ -94,7 +94,7 @@ window.onload =() =>{
               </div>
             </div>
           </div>
-          <hr/>
+          
           <div class="row">
               <div class="col l3">
               <div class="row">
@@ -121,7 +121,7 @@ window.onload =() =>{
               </div>
             </div>
           </div>
-          <hr/>
+          
           <div class="row">
             <div class="col l3" >
               <div class="row">
@@ -148,7 +148,7 @@ window.onload =() =>{
               </div>
             </div>
           </div>
-        <hr/>
+        
           <div class="row">
             <div class="col l3">
               <div class="row">
@@ -175,7 +175,7 @@ window.onload =() =>{
               </div>
             </div>
           </div>
-          <hr/>
+          
           <div class="row">
               <div class="col l3" >
               <div class="row">
@@ -202,9 +202,8 @@ window.onload =() =>{
               </div>
             </div>
           </div>
-          <hr/>
+          
           <div class="row">
-         <hr/>     
         <div class="col l3">
               <div class="row">
                 <div class="col l6">HP per level</div>
@@ -473,7 +472,9 @@ for(let k=0; k<listAverage.length;k++){
 
  // Menu responsive
 
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', 
+  
+  function() {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems);
 
