@@ -6969,5 +6969,6 @@ const LOL = {
         attackspeedperlevel: 2.11
       }
     }
-  } //cierre de la data
+  } 
 };
+window.LOL=LOL;
