@@ -9,9 +9,9 @@ body{
 
 #lol-logo{
     width: 140px;
-    height: 45px;
-    margin-left: 40px;
-    margin-top: 7px;
+    height: 50px;
+    margin-left: 50px;
+    margin-top: 5px;
 }
 
 .nav-wrapper li a{   
@@ -19,6 +19,7 @@ body{
     padding:10px 20px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #9C865A;
+    margin-right: 20px;
 }
 
 h1{
@@ -32,19 +33,20 @@ h1{
     font-size: 18px ;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
     color:#D0BFD8;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 #page-image.responsive-img.col.s12.m6.l6{
     
-    height: 250px;
+    height: 300px;
     margin-top:20px;
+
 }
 
 #start{
     float: right;
     margin-right: 20px;
-    background-color: #9C865A;
+    background-color: rgb(141, 113, 56);
     border-radius: 5px;
     width: 130px;
     text-align: center;
@@ -120,7 +122,6 @@ h2{
 .link{
     color: cadetblue;
     cursor: pointer;
-<<<<<<< HEAD
 
 }
 .link2{
@@ -161,108 +162,9 @@ padding: 10px;
      
 }
 
-=======
-}
-
-.link2{
-    cursor: pointer;
-    float:right;
-    margin-right: 25px;
-    margin-top: 15px;
-    font-size: 30px;
-    color: solid black;
-}
-
-.card.large {
-    width: 880px;
-    height: auto;
-    margin:40px;
-    margin-left:-10%;
-}
-
-h3{
-    font-size: 24px;
-    color:black;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    text-align: center;
-}
-
-#image-info, #info-champion{
-margin: 10px;
-padding: 10px;
-}
-
-#image-info, #champion-name{
-    float: left;
-}
-
- #champion-name{
-    margin-left: 250px;
-}
- 
->>>>>>> johanna/master
 #info-table{
     width: 400px;
     height: 250px;
     float: right;
     margin-right: 150px ;
 }
-<<<<<<< HEAD
-=======
-
-.sidenav-overlay{
-    z-index: 995;
-}
-
-.responsive-image{
-    width: 200px;
-    height:200px;
-    margin-top:40px;
-}
-
-div.col.l9{
-    margin-top: 40px;
-}
-
-#result-table{
-    color:#D0BFD8;
-}
-
-@media only screen
-and (max-width : 480px) {
-    .card.large { 
-        width:320px;
-        margin-left:3%;
-    }
-    
-    #champion-name {
-        font-size:18px;
-        margin-left:0%;
-    }
-
-    h4{
-        font-size:18px;
-    }        
-    span.link2{
-        font-size: 15px;
-        margin-right: 15px;
-        margin-top:10px
-    }
-    h2{
-        font-size: 20px;
-    }
-    img.responsive-image{
-        width: 150px;
-        height:150px;
-        margin-top:20px;
-    }
-}
-
-@media only screen
-and (min-width: 480px)and(max-width: 767px) {
-    .card.large { 
-        width:400px;
-        margin-left:-60%;
-    }
-}
->>>>>>> johanna/master
