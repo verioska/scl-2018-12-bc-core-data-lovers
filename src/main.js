@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function(){
-  M.AutoInit();
+  window.M.AutoInit(); 
 });
 
 
@@ -27,26 +27,27 @@ window.onload =() =>{
               <span class="card-title activator grey-text text-darken-2"><h6>${data[i].name}</h6><i class="material-icons right">more_vert</i></span>
             </div>
             <div class="card-reveal">
-             <span class="card-title grey-text text-darken-4">${data[i].name}<i class="material-icons right">close</i></span>
-             <p> Ataque: ${ data[i].info.attack }</p>
-              <p> Defensa: ${ data[i].info.defense }</p>
-              <p> Magia: ${ data[i].info.magic }</p>
-              <p> Dificultad: ${ data[i].info.difficulty }</p>
-              <span class="link" data-champion='${data[i].id}'>Ver mas</span>
+             <span class="card-title grey-text text-darken-4">${lolData[i].name}<i class="material-icons right">close</i></span>
+             <p> Ataque: ${ lolData[i].info.attack }</p>
+              <p> Defensa: ${ lolData[i].info.defense }</p>
+              <p> Magia: ${ lolData[i].info.magic }</p>
+              <p> Dificultad: ${ lolData[i].info.difficulty }</p>
+              <span class="link" data-champion='${lolData[i].id}'>Ver mas</span>
             </div>
           </div>
         </div> ` 
-     }
+      }
      const links = document.getElementsByClassName('link');
      for (let i = 0; i < links.length; i++) {
         links[i].addEventListener('click', (event) => {
           event.preventDefault();
-          const id = event.srcElement.dataset.champion;
+          const id = event.srcElement.dataset.champion;          
          showDetail(id);
         });
        }
    }
   function showDetail(id) {
+    
     document.getElementById("page2").style.display="none";
     document.getElementById("page3").style.display="block";
     let championDetail = findChampion(id);
@@ -237,14 +238,14 @@ window.onload =() =>{
    
   document.getElementById('selectRol').addEventListener("change",()=>{
     let condition=document.getElementById('selectRol').value;
-    let datafilter=filterData(data,condition);
+    let datafilter=window.data.filterData(window.LOL,condition);
     showCards(datafilter);   
   });
 
   document.getElementById('selectOrder').addEventListener("change",()=>{
     
     let sortOrder=document.getElementById('selectOrder').value;
-    let datasort=sortData(data,"id",sortOrder);
+    let datasort=window.data.sortData(window.LOL,"id",sortOrder);
     showCards(datasort);
   });
 };
