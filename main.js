@@ -9,22 +9,26 @@ window.onload =() =>{
 
   document.getElementById("start").addEventListener("click",
   (event) => {
-    event.preventDefault();
-    document.getElementById("page1").style.display="none";
-    document.getElementById("page2").style.display="block";
-    
-    showCards(data);
-  })
+  event.preventDefault();
+  document.getElementById("page1").style.display="none";
+  document.getElementById("page2").style.display="block";
+  document.getElementById("page4").style.display="none";
+  showCards(window.data);
+})
+ 
   function showCards(data) {
-    document.getElementById("page3").style.display="none";
-    document.getElementById('championsList').innerHTML = '';
-    for (let i = 0; i < data.length; i++) {
-      document.getElementById('championsList').innerHTML += `
-        <div class="col s6 m3" >
-          <div class="card">
-            <img class="imagen-lol responsive-img" src="${data[i].splash}" >
-            <div class="card-content">
-              <span class="card-title activator grey-text text-darken-2"><h6>${data[i].name}</h6><i class="material-icons right">more_vert</i></span>
+    const lolData= data;
+  document.getElementById("page3").style.display="none";  
+    
+  document.getElementById('root').innerHTML='';
+  document.getElementById('champions-list').innerHTML = '';
+    for (let i = 0; i < lolData.length; i++) {
+  document.getElementById('champions-list').innerHTML += `
+    <div class="col s6 m3" >
+      <div class="card">
+        <img class="imagen-lol responsive-img" src="${lolData[i].splash}" >
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-2"><h6>${lolData[i].name}</h6><i class="material-icons right">more_vert</i></span>
             </div>
             <div class="card-reveal">
              <span class="card-title grey-text text-darken-4">${lolData[i].name}<i class="material-icons right">close</i></span>
@@ -50,17 +54,18 @@ window.onload =() =>{
     
     document.getElementById("page2").style.display="none";
     document.getElementById("page3").style.display="block";
-    let championDetail = findChampion(id);
-    document.getElementById("championDetail").innerHTML = `
-      <div class="card large ">
+    let championDetail = window.data.findChampion(window.LOL,id);
+    document.getElementById("champions-detail").innerHTML = `
+      <div class="card large">
         <div>
           <span class="link2" data-champion='${championDetail.id}'>X</span>
           <img id="image-info" class="imagen-lol responsive-img" src="${championDetail.splash}">
           <div id="champion-name">
             <h3>${championDetail.name}</h3>
-            <p>${championDetail.partype}<p>
+            <p id="champions-n">${championDetail.partype}<p>
           </div>
          </div>
+
        <section class="container" style="width:95%">
           <div class="row" >
             <div class="col l12">
@@ -77,7 +82,8 @@ window.onload =() =>{
                 <div class="col l6" id="mp">${championDetail.stats.mp}</div>
               </div>
             </div>
-            <div class="col l3" > 
+
+            <div class="col s6 l3" > 
               <div class="row">
                 <div class="col l6">Spell block per level</div>
                 <div class="col l6" id="spellblockperlevel">${championDetail.stats.spellblockperlevel}</div>
@@ -90,6 +96,7 @@ window.onload =() =>{
               </div>
             </div>
           </div>
+          <hr/>
           <div class="row">
               <div class="col l3">
               <div class="row">
@@ -116,6 +123,7 @@ window.onload =() =>{
               </div>
             </div>
           </div>
+          <hr/>
           <div class="row">
             <div class="col l3" >
               <div class="row">
@@ -142,6 +150,7 @@ window.onload =() =>{
               </div>
             </div>
           </div>
+        <hr/>
           <div class="row">
             <div class="col l3">
               <div class="row">
@@ -168,6 +177,7 @@ window.onload =() =>{
               </div>
             </div>
           </div>
+          <hr/>
           <div class="row">
               <div class="col l3" >
               <div class="row">
@@ -194,9 +204,10 @@ window.onload =() =>{
               </div>
             </div>
           </div>
+          <hr/>
           <div class="row">
-              
-            <div class="col l3">
+         <hr/>     
+        <div class="col l3">
               <div class="row">
                 <div class="col l6">HP per level</div>
                 <div class="col l6" id="hpperlevel">${championDetail.stats.hpperlevel}</div>
@@ -231,7 +242,8 @@ window.onload =() =>{
            event.preventDefault();
            document.getElementById("page2").style.display="block";
            document.getElementById("page3").style.display="none";
-           showCards(data);
+           document.getElementById("page4").style.display="none";
+           showCards(window.LOL);
          });
        }
    }
@@ -248,4 +260,247 @@ window.onload =() =>{
     let datasort=window.data.sortData(window.LOL,"id",sortOrder);
     showCards(datasort);
   });
+  document.getElementById("champions").addEventListener("click",
+  (event) => {
+    event.preventDefault();
+    document.getElementById("page1").style.display="none";
+    document.getElementById("page2").style.display="block";
+    document.getElementById("page3").style.display="none";
+    document.getElementById("page4").style.display="none";
+    
+    showCards(window.LOL);
+  })
+
+  document.getElementById("stats").addEventListener("click",
+  (event) => {
+  event.preventDefault();
+  
+  document.getElementById("page1").style.display="none";
+  document.getElementById("page2").style.display="none";
+  document.getElementById("page3").style.display="none";
+  document.getElementById("page4").style.display="block";
+  showStats();
+  });
+
+  function showStats(){
+  
+  
+  
+document.getElementById('root').innerHTML=''
+const listAverage=window.data.computeStats(window.LOL);
+let image=["assassin.jpeg","fighter.jpeg","mage.jpeg","marksman.jpeg","support.jpeg","tank.jpeg"];
+for(let k=0; k<listAverage.length;k++){
+ const average=listAverage[k]; 
+
+ document.getElementById("root").innerHTML+=`
+ <section class="container" style="width:90%">
+       <div class="row" >
+         <div class="col s6 m3 l3">
+           <img class="responsive-image" src="${image[k]}" >
+         </div>
+         <div class="col l9">
+         <div class="row">
+          
+           <div   class="col s6 m3 l3" >
+             <div class="row">
+               <div class="col s12 m6 l6">Attack</div>
+               <div class="col s12 m6 l6" id="result-table">${average[0]}</div>
+             </div>
+           </div>
+           <div class="col s6 m3 l3" >
+             <div class="row">
+               <div class="col s12 m6 l6">MP</div>
+               <div class="col s12 m6 l6" id="result-table">${average[6]}</div>
+             </div>
+           </div>
+           <div class="col s6 m3 l3" >
+             <div class="row">
+               <div class="col s12 m6 l6">Spell block per level</div>
+               <div class="col s12 m6 l6" id="result-table">${average[12]}</div>
+             </div>
+           </div>
+           <div class="col s6 m3 l3" >
+             <div class="row">
+               <div class="col s12 m6 l6">Crit</div>
+               <div class="col s12 m6 l6" id="result-table">${average[18]}</div>
+             </div>
+           </div>
+         </div>
+
+         <div class="row">
+            
+           <div class="col s6 m3 l3">
+             <div class="row">
+               <div class="col s12 m6 l6">Defense</div>
+               <div class="col s12 m6 l6" id="result-table">${average[1]}</div>
+             </div>
+           </div>
+           <div class="col s6 m3 l3">
+             <div class="row">
+               <div class="col s12 m6 l6">MP per level</div>
+               <div class="col s12 m6 l6" id="result-table">${average[7]}</div>
+             </div>
+           </div>
+           <div class="col s6 m3 l3">
+             <div class="row">
+               <div class="col s12 m6 l6">Attack range</div>
+               <div class="col s12 m6 l6" id="result-table">${average[13]}</div>
+             </div>
+           </div>
+           <div class="col s6 m3 l3">
+             <div class="row">
+               <div class="col s12 m6 l6">Crit per level</div>
+               <div class="col s12 m6 l6" id="result-table">${average[19]}</div>
+             </div>
+           </div>
+         </div>
+         <div class="row">
+            
+           <div class="col s6 m3 l3" >
+             <div class="row">
+               <div class="col s12 m6 l6">Magic</div>
+               <div class="col s12 m6 l6" id="result-table">${average[2]}</div>
+             </div>
+           </div>
+           <div class="col s6 m3 l3" >
+             <div class="row">
+               <div class="col s12 m6 l6">Movespeed</div>
+               <div class="col s12 m6 l6" id="result-table">${average[8]}</div>
+             </div>
+           </div>
+           <div class="col s6 m3 l3" >
+             <div class="row">
+               <div class="col s12 m6 l6">HP regen</div>
+               <div class="col s12 m6 l6" id="result-table">${average[14]}</div>
+             </div>
+           </div>
+           <div class="col s6 m3 l3" >
+             <div class="row">
+               <div class="col s12 m6 l6">Attack damage</div>
+               <div class="col s12 m6 l6" id="result-table">${average[20]}</div>
+             </div>
+           </div>
+         </div>
+         <div class="row">
+            
+           <div class="col s6 m3 l3">
+             <div class="row">
+               <div class="col s12 m6 l6">Difficulty</div>
+               <div class="col s12 m6 l6" id="result-table">${average[3]}</div>
+             </div>
+           </div>
+           <div class="col s6 m3 l3">
+             <div class="row">
+               <div class="col s12 m6 l6">Armor</div>
+               <div class="col s12 m6 l6" id="result-table">${average[9]}</div>
+             </div>
+           </div>
+           <div class="col s6 m3 l3">
+             <div class="row">
+               <div class="col s12 m6 l6">HP Regen per level</div>
+               <div class="col s12 m6 l6" id="result-table">${average[15]}</div>
+             </div>
+           </div>
+           <div class="col s6 m3 l3">
+             <div class="row">
+               <div class="col s12 m6 l6">Attack damage per level</div>
+               <div class="col s12 m6 l6" id="result-table">${average[21]}</div>
+             </div>
+           </div>
+         </div>
+         <div class="row">
+            
+           <div class="col s6 m3 l3" >
+             <div class="row">
+               <div class="col s12 m6 l6">HP</div>
+               <div class="col s12 m6 l6" id="result-table">${average[4]}</div>
+             </div>
+           </div>
+           <div class="col s6 m3 l3" >
+             <div class="row">
+               <div class="col s12 m6 l6">Armor per level</div>
+               <div class="col s12 m6 l6" id="result-table">${average[10]}</div>
+             </div>
+           </div>
+           <div class="col s6 m3 l3" >
+             <div class="row">
+               <div class="col s12 m6 l6">MP Regen per level</div>
+               <div class="col s12 m6 l6" id="result-table">${average[16]}</div>
+             </div>
+           </div>
+           <div class="col s6 m3 l3" >
+             <div class="row">
+               <div class="col s12 m6 l6">Attack speed offset</div>
+               <div class="col s12 m6 l6" id="result-table">${average[22]}</div>
+             </div>
+           </div>
+         </div>
+         <div class="row">
+            
+           <div class="col s6 m3 l3">
+             <div class="row">
+               <div class="col s12 m6 l6">HP per level</div>
+               <div class="col s12 m6 l6" id="result-table">${average[5]}</div>
+             </div>
+           </div>
+           <div class="col s6 m3 l3">
+             <div class="row">
+               <div class="col s12 m6 l6">Spell block</div>
+               <div class="col s12 m6 l6" id="result-table">${average[11]}</div>
+             </div>
+           </div>
+           <div class="col s6 m3 l3">
+             <div class="row">
+               <div class="col s12 m6 l6">MP Regen per level</div>
+               <div class="col s12 m6 l6" id="result-table">${average[17]}</div>
+             </div>
+           </div>
+           <div class="col s6 m3 l3">
+             <div class="row">
+               <div class="col s12 m6 l6">Attack speed per level</div>
+               <div class="col s12 m6 l6" id="result-table">${average[23]}</div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </section>
+   <hr/>   
+ `
+}
+  }
+
+
+
+
+ // Menu responsive
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    window.M.Sidenav.init(elems);
+
+  });
+  document.getElementById("page3").style.display="none";
+
+  document.getElementById("champions-1").addEventListener("click",
+  (event) => {
+    event.preventDefault();
+    document.getElementById("page1").style.display="none";
+    document.getElementById("page2").style.display="block";
+    document.getElementById("page4").style.display="none";
+
+    showCards(window.LOL);
+  });
+  
+  document.getElementById("stats-1").addEventListener("click",
+  (event) => {
+  event.preventDefault();
+  
+  document.getElementById("page1").style.display="none";
+  document.getElementById("page2").style.display="none";
+  document.getElementById("page3").style.display="none";
+  document.getElementById("page4").style.display="block";
+  showStats();
+  });
+
 };
