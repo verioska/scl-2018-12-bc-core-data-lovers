@@ -1,4 +1,5 @@
 window.data ={
+ 
 
   filterData: (data,condition) => {
     const lolData= data;
@@ -49,6 +50,8 @@ window.data ={
     return championInfo;
     
   },
+
+
   
   computeStats: (data) =>{
       let tag=["Assassin","Fighter","Mage","Marksman","Support","Tank"];      
