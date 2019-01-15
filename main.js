@@ -10,20 +10,22 @@ window.onload =() =>{
   document.getElementById("start").addEventListener("click",
   (event) => {
   event.preventDefault();
+  
   document.getElementById("page1").style.display="none";
   document.getElementById("page2").style.display="block";
   document.getElementById("page4").style.display="none";
-  showCards(window.data);
-})
+  document.getElementById("page5").style.display="none";
+  showCards(window.LOL)
+});
  
-  function showCards(data) {
-    const lolData= data;
-  document.getElementById("page3").style.display="none";  
-    
-  document.getElementById('root').innerHTML='';
-  document.getElementById('champions-list').innerHTML = '';
+ function showCards(data) {
+    const lolData = Object.values(data.data);
+    document.getElementById("page3").style.display = "none";
+
+    document.getElementById('root').innerHTML = '';
+    document.getElementById('champions-list').innerHTML = '';
     for (let i = 0; i < lolData.length; i++) {
-  document.getElementById('champions-list').innerHTML += `
+      document.getElementById('champions-list').innerHTML += `
     <div class="col s6 m3" >
       <div class="card">
         <img class="imagen-lol responsive-img" src="${lolData[i].splash}" >
@@ -32,29 +34,31 @@ window.onload =() =>{
             </div>
             <div class="card-reveal">
              <span class="card-title grey-text text-darken-4">${lolData[i].name}<i class="material-icons right">close</i></span>
-             <p> Ataque: ${ lolData[i].info.attack }</p>
-              <p> Defensa: ${ lolData[i].info.defense }</p>
-              <p> Magia: ${ lolData[i].info.magic }</p>
-              <p> Dificultad: ${ lolData[i].info.difficulty }</p>
+             <p> Ataque: ${ lolData[i].info.attack}</p>
+              <p> Defensa: ${ lolData[i].info.defense}</p>
+              <p> Magia: ${ lolData[i].info.magic}</p>
+              <p> Dificultad: ${ lolData[i].info.difficulty}</p>
               <span class="link" data-champion='${lolData[i].id}'>Ver mas</span>
             </div>
           </div>
-        </div> ` 
-      }
-     const links = document.getElementsByClassName('link');
-     for (let i = 0; i < links.length; i++) {
-        links[i].addEventListener('click', (event) => {
-          event.preventDefault();
-          const id = event.srcElement.dataset.champion;          
-         showDetail(id);
-        });
-       }
-   }
+        </div> `
+    }
+    const links = document.getElementsByClassName('link');
+    for (let i = 0; i < links.length; i++) {
+      links[i].addEventListener('click', (event) => {
+        event.preventDefault();
+        const id = event.srcElement.dataset.champion;
+        showDetail(id);
+      });
+    }
+  }
+
+
   function showDetail(id) {
-    
-    document.getElementById("page2").style.display="none";
-    document.getElementById("page3").style.display="block";
-    let championDetail = window.data.findChampion(window.LOL,id);
+
+    document.getElementById("page2").style.display = "none";
+    document.getElementById("page3").style.display = "block";
+    let championDetail = window.data.findChampion(window.LOL, id);
     document.getElementById("champions-detail").innerHTML = `
       <div class="card large">
         <div>
@@ -236,64 +240,90 @@ window.onload =() =>{
       <div> 
        </div>`  //cierre tarjeta card
 
-       const links = document.getElementsByClassName('link2');
-       for (let i = 0; i < links.length; i++) {
-         links[i].addEventListener('click', (event) => {
-           event.preventDefault();
-           document.getElementById("page2").style.display="block";
-           document.getElementById("page3").style.display="none";
-           document.getElementById("page4").style.display="none";
-           showCards(window.LOL);
-         });
-       }
-   }
-   
-  document.getElementById('selectRol').addEventListener("change",()=>{
-    let condition=document.getElementById('selectRol').value;
-    let datafilter=window.data.filterData(window.LOL,condition);
-    showCards(datafilter);   
+    const links = document.getElementsByClassName('link2');
+    for (let i = 0; i < links.length; i++) {
+      links[i].addEventListener('click', (event) => {
+        event.preventDefault();
+        document.getElementById("page2").style.display = "block";
+        document.getElementById("page3").style.display = "none";
+        document.getElementById("page4").style.display = "none";
+        showCards(window.LOL);
+      });
+    }
+  }
+
+ 
+
+
+  document.getElementById('selectRol').addEventListener("change", () => {
+    let condition = document.getElementById('selectRol').value;
+    let datafilter = window.data.filterData(window.LOL, condition);
+    showCards(datafilter);
   });
 
-  document.getElementById('selectOrder').addEventListener("change",()=>{
-    
-    let sortOrder=document.getElementById('selectOrder').value;
-    let datasort=window.data.sortData(window.LOL,"id",sortOrder);
+  document.getElementById('selectOrder').addEventListener("change", () => {
+
+    let sortOrder = document.getElementById('selectOrder').value;
+    let datasort = window.data.sortData(window.LOL, "id", sortOrder);
     showCards(datasort);
   });
   document.getElementById("champions").addEventListener("click",
-  (event) => {
-    event.preventDefault();
-    document.getElementById("page1").style.display="none";
-    document.getElementById("page2").style.display="block";
-    document.getElementById("page3").style.display="none";
-    document.getElementById("page4").style.display="none";
-    
-    showCards(window.LOL);
-  })
+    (event) => {
+      event.preventDefault();
+      document.getElementById("page1").style.display = "none";
+      document.getElementById("page2").style.display = "block";
+      document.getElementById("page3").style.display = "none";
+      document.getElementById("page4").style.display = "none";
 
-  document.getElementById("stats").addEventListener("click",
-  (event) => {
-  event.preventDefault();
-  
-  document.getElementById("page1").style.display="none";
-  document.getElementById("page2").style.display="none";
-  document.getElementById("page3").style.display="none";
-  document.getElementById("page4").style.display="block";
-  showStats();
-  });
+      showCards(window.LOL);
+    })
 
-  function showStats(){
-  
-  
-  
-document.getElementById('root').innerHTML=''
-const listAverage=window.data.computeStats(window.LOL);
-let image=["assassin.jpeg","fighter.jpeg","mage.jpeg","marksman.jpeg","support.jpeg","tank.jpeg"];
-for(let k=0; k<listAverage.length;k++){
- const average=listAverage[k]; 
+   document.getElementById("stats").addEventListener("click",
+    (event) => {
+      event.preventDefault();
 
- document.getElementById("root").innerHTML+=`
- <section class="container" style="width:90%">
+      document.getElementById("page1").style.display = "none";
+      document.getElementById("page2").style.display = "none";
+      document.getElementById("page3").style.display = "none";
+      document.getElementById("page4").style.display = "block";
+      document.getElementById("page5").style.display = "none";
+      showStats();
+    });
+
+    document.getElementById("graphic").addEventListener("click",
+    (event) => {
+      event.preventDefault();
+      document.getElementById("root").innerHTML = "";
+      document.getElementById("page1").style.display = "none";
+      document.getElementById("page2").style.display = "none";
+      document.getElementById("page3").style.display = "none";
+      document.getElementById("page4").style.display = "none";
+      document.getElementById("page5").style.display = "block";
+      var chart = new Chart(document.getElementById('myChart').getContext('2d'), {
+          type: 'bar',
+          data: {
+            labels: ["Luchador", "Mago", "Asesino", "Tanque", "Soporte", "Tirador"],
+              datasets: [{
+                  label: "Cantidad de personaje por rol",
+                  backgroundColor: '#01579b',
+                  borderColor: '#01579b',
+                  data: [window.data.filterData(window.LOL, "Fighter").length, window.data.filterData(window.LOL, "Mage").length,window.data.filterData(window.LOL, "Assassin").length,window.data.filterData(window.LOL, "Tank").length, window.data.filterData(window.LOL, "Support").length, window.data.filterData(window.LOL, "Marksman").length],
+              }]
+          },
+          options: {}
+      })
+    });
+
+  function showStats() {
+
+    document.getElementById('root').innerHTML = ''
+    const listAverage = window.data.computeStats(window.LOL);
+    let image = ["assassin.jpeg", "fighter.jpeg", "mage.jpeg", "marksman.jpeg", "support.jpeg", "tank.jpeg"];
+    for (let k = 0; k < listAverage.length; k++) {
+      const average = listAverage[k];
+
+      document.getElementById("root").innerHTML += `
+     <section class="container" style="width:90%">
        <div class="row" >
          <div class="col s6 m3 l3">
            <img class="responsive-image" src="${image[k]}" >
@@ -464,43 +494,66 @@ for(let k=0; k<listAverage.length;k++){
          </div>
        </div>
      </div>
-   </section>
+   </section> 
    <hr/>   
  `
-}
+    }
   }
 
 
 
 
- // Menu responsive
+  // Menu responsive
 
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.sidenav');
     window.M.Sidenav.init(elems);
 
   });
-  document.getElementById("page3").style.display="none";
+  document.getElementById("page3").style.display = "none";
 
   document.getElementById("champions-1").addEventListener("click",
-  (event) => {
-    event.preventDefault();
-    document.getElementById("page1").style.display="none";
-    document.getElementById("page2").style.display="block";
-    document.getElementById("page4").style.display="none";
+    (event) => {
+      event.preventDefault();
+      document.getElementById("page1").style.display = "none";
+      document.getElementById("page2").style.display = "block";
+      document.getElementById("page4").style.display = "none";
 
-    showCards(window.LOL);
-  });
-  
+      showCards(window.LOL);
+    });
+
   document.getElementById("stats-1").addEventListener("click",
-  (event) => {
-  event.preventDefault();
-  
-  document.getElementById("page1").style.display="none";
-  document.getElementById("page2").style.display="none";
-  document.getElementById("page3").style.display="none";
-  document.getElementById("page4").style.display="block";
-  showStats();
-  });
+    (event) => {
+      event.preventDefault();
 
+      document.getElementById("page1").style.display = "none";
+      document.getElementById("page2").style.display = "none";
+      document.getElementById("page3").style.display = "none";
+      document.getElementById("page4").style.display = "block";
+      showStats();
+    });
+    document.getElementById("graphic-1").addEventListener("click",
+    (event) => {
+      event.preventDefault();
+      document.getElementById("root").innerHTML = "";
+      document.getElementById("page1").style.display = "none";
+      document.getElementById("page2").style.display = "none";
+      document.getElementById("page3").style.display = "none";
+      document.getElementById("page4").style.display = "none";
+      document.getElementById("page5").style.display = "block";
+      var chart = new Chart(document.getElementById('myChart').getContext('2d'), {
+          type: 'bar',
+          data: {
+            labels: ["Luchador", "Mago", "Asesino", "Tanque", "Soporte", "Tirador"],
+              datasets: [{
+                  label: "Cantidad de personaje por rol",
+                  backgroundColor: '#01579b',
+                  borderColor: '#01579b',
+                  data: [window.data.filterData(window.LOL, "Fighter").length, window.data.filterData(window.LOL, "Mage").length,window.data.filterData(window.LOL, "Assassin").length,window.data.filterData(window.LOL, "Tank").length, window.data.filterData(window.LOL, "Support").length, window.data.filterData(window.LOL, "Marksman").length],
+              }]
+          },
+          options: {}
+      });
+
+})
 };

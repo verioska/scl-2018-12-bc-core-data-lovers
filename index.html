@@ -17,6 +17,7 @@
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
             <li><a href="" id="inicio">Inicio</a></li>
+            <li> <a id="graphic">Grafico</a></li>
             <li> <a id="stats">Estadisticas</a></li>
             <li> <a id="champions">Campeones</a></li>
             <li><a href="https://las.leagueoflegends.com/es/game-info/">Más de Lol</a></li>
@@ -28,6 +29,7 @@
       
       <ul class="sidenav" id="mobile-demo">
           <li><a href="" id="start-1">Inicio</a></li>
+          <li> <a  id="graphic-1">Grafico</a></li>
           <li> <a  id="stats-1">Estadisticas</a></li>
           <li> <a id="champions-1">Campeones</a></li>
         <li><a href="https://las.leagueoflegends.com/es/game-info/">Más de Lol</a></li>
@@ -71,11 +73,7 @@
               </div>
              </div>
              </div>
-            
-            
-
-
-          </div>
+         </div>
         
         <div class="container">
           <div id="page2">
@@ -115,23 +113,34 @@
           </div>
           
         </div>
-        
-        
+    
         <div id="page4" >
           <h2>Estadisticas de los campeones por rol</h2>
         </div>
 
-        <div id="root" class="row"></div>
-
-        <footer class="page-footer">
-          <div class="footer-copyright">
-            <div class="container">
-              © 2018 Copyright Text
-              <a class="grey-text text-lighten-4 right" href="https://universe.leagueoflegends.com/es_ES/">Universo Lol</a>
+        
+        <div id="page5" >
+          <div class="container">
+            <div class="row"></div>
+            <div class="col s6 m3 l3">
+              <canvas id="myChart" >
+              </canvas>
             </div>
           </div>
-        </footer>
+        </div>
+        
+        <div id="root" class="row"></div>
+        <footer class="page-footer">
+           <div class="footer-copyright">
+             <div class="container">
+               © 2018 Copyright Text
+               <a class="grey-text text-lighten-4 right" href="https://universe.leagueoflegends.com/es_ES/">Universo Lol</a>
+             </div>
+           </div>
+         </footer>
+        
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script>$(document).ready(function(){
