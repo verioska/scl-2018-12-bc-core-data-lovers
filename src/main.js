@@ -100,7 +100,6 @@ window.onload =() =>{
               </div>
             </div>
           </div>
-          <hr/>
           <div class="row">
               <div class="col l3">
               <div class="row">
@@ -127,7 +126,6 @@ window.onload =() =>{
               </div>
             </div>
           </div>
-          <hr/>
           <div class="row">
             <div class="col l3" >
               <div class="row">
@@ -154,7 +152,6 @@ window.onload =() =>{
               </div>
             </div>
           </div>
-        <hr/>
           <div class="row">
             <div class="col l3">
               <div class="row">
@@ -181,7 +178,6 @@ window.onload =() =>{
               </div>
             </div>
           </div>
-          <hr/>
           <div class="row">
               <div class="col l3" >
               <div class="row">
@@ -208,9 +204,7 @@ window.onload =() =>{
               </div>
             </div>
           </div>
-          <hr/>
-          <div class="row">
-         <hr/>     
+          <div class="row">  
         <div class="col l3">
               <div class="row">
                 <div class="col l6">HP per level</div>
@@ -299,7 +293,8 @@ window.onload =() =>{
       document.getElementById("page3").style.display = "none";
       document.getElementById("page4").style.display = "none";
       document.getElementById("page5").style.display = "block";
-      var chart = new Chart(document.getElementById('myChart').getContext('2d'), {
+      
+      new window.Chart(document.getElementById('myChart').getContext('2d'), {
           type: 'bar',
           data: {
             labels: ["Luchador", "Mago", "Asesino", "Tanque", "Soporte", "Tirador"],
@@ -310,7 +305,9 @@ window.onload =() =>{
                   data: [window.data.filterData(window.LOL, "Fighter").length, window.data.filterData(window.LOL, "Mage").length,window.data.filterData(window.LOL, "Assassin").length,window.data.filterData(window.LOL, "Tank").length, window.data.filterData(window.LOL, "Support").length, window.data.filterData(window.LOL, "Marksman").length],
               }]
           },
-          options: {}
+          options: {
+           fontSize:1000,
+          }
       })
     });
 
@@ -541,7 +538,7 @@ window.onload =() =>{
       document.getElementById("page3").style.display = "none";
       document.getElementById("page4").style.display = "none";
       document.getElementById("page5").style.display = "block";
-      var chart = new Chart(document.getElementById('myChart').getContext('2d'), {
+       new window.Chart(document.getElementById('myChart').getContext('2d'), {
           type: 'bar',
           data: {
             labels: ["Luchador", "Mago", "Asesino", "Tanque", "Soporte", "Tirador"],

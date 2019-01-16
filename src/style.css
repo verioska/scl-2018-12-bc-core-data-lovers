@@ -224,6 +224,20 @@ and (max-width : 480px) {
         margin-left:5px;
     }
 }
+.container input#search{
+    margin-right: 5px;
+    width: 100px;
+    height: 30px;
+    background:white;
+    border: none;
+    font-size: 15pt;
+    float: left;
+    color: black;
+    padding-left: 45px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 30px;
+    border-radius: 10px;
+  }
 
 @media only screen
 and (min-width: 480px)and(max-width: 767px) {
