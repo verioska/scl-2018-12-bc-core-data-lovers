@@ -2,8 +2,8 @@ window.data ={
  
 
   filterData: (data,condition) => {
-    const lolData= data;
-    const championData= Object.values(lolData.data);
+    const championData= data;
+    //const championData= Object.values(lolData.data);
     const category=championData.filter(tipos =>{
     return tipos.tags.indexOf(condition)!==-1;
     });
@@ -20,8 +20,8 @@ window.data ={
   },
    
   sortData: (data,sortBy,sortOrder) => {
-    const lolData= data;
-    const championData= Object.values(lolData.data);
+    const championData= data;
+   // const championData= Object.values(lolData.data);
     if(sortBy==="id" && sortOrder === "a-z" ){
       championData.sort((a,b)=>{
         if(b.id>a.id){
@@ -49,11 +49,11 @@ window.data ={
   
   findChampion: (data,id) => {
     const lolData = data
-    const championData= Object.values(lolData.data);
+    //const championData= Object.values(lolData.data);
     let championInfo;
-    for(let i=0; i<championData.length;i++){
-      if(championData[i].id===id){
-       championInfo=championData[i]
+    for(let i=0; i<lolData.length;i++){
+      if(lolData[i].id===id){
+       championInfo=lolData[i]
       }
     }
     return championInfo;
