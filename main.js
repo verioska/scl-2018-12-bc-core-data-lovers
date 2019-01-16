@@ -1,3 +1,14 @@
+//let datajson;
+//fetch("data/lol/lol.json")
+//  .then(data=>data.json())
+//  .then(data=>{
+//    datajson=Object.values(data.data);
+//    console.log(datajson)
+//  })
+//
+
+
+
 document.addEventListener('DOMContentLoaded', function(){
   window.M.AutoInit(); 
 });
@@ -15,11 +26,12 @@ window.onload =() =>{
   document.getElementById("page2").style.display="block";
   document.getElementById("page4").style.display="none";
   document.getElementById("page5").style.display="none";
-  showCards(window.LOL)
+  showCards(lolData1)
 });
+const lolData1 = Object.values(window.LOL.data);
  
  function showCards(data) {
-    const lolData = Object.values(data.data);
+    const lolData=data
     document.getElementById("page3").style.display = "none";
 
     document.getElementById('root').innerHTML = '';
@@ -246,8 +258,15 @@ window.onload =() =>{
     }
   }
 
- 
+  document.getElementById('search').addEventListener("keydown", (e) => {
+    if(e.keyCode === 13){
 
+      let condition = document.getElementById('search').value
+      let datasearch = window.data.searchChamp(window.LOL,condition);
+      showCards(datasearch);
+    }
+ 
+   });
 
   document.getElementById('selectRol').addEventListener("change", () => {
     let condition = document.getElementById('selectRol').value;
@@ -283,6 +302,7 @@ window.onload =() =>{
       document.getElementById("page5").style.display = "none";
       showStats();
     });
+    
 
     document.getElementById("graphic").addEventListener("click",
     (event) => {
