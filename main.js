@@ -1,11 +1,11 @@
-//let datajson;
-//fetch("data/lol/lol.json")
-//  .then(data=>data.json())
-//  .then(data=>{
-//    datajson=Object.values(data.data);
-//    console.log(datajson)
-//  })
-//
+let datajson;
+fetch("data/lol/lol.json")
+ .then(data=>data.json())
+ .then(data=>{
+   datajson=Object.values(data.data);
+   
+ })
+
 
 
 
@@ -26,12 +26,12 @@ window.onload =() =>{
   document.getElementById("page2").style.display="block";
   document.getElementById("page4").style.display="none";
   document.getElementById("page5").style.display="none";
-  showCards(lolData1)
+  showCards(datajson)
 });
-const lolData1 = Object.values(window.LOL.data);
+
  
  function showCards(data) {
-    const lolData=data
+    const lolData=Object.values(data);
     document.getElementById("page3").style.display = "none";
 
     document.getElementById('root').innerHTML = '';
@@ -60,6 +60,7 @@ const lolData1 = Object.values(window.LOL.data);
       links[i].addEventListener('click', (event) => {
         event.preventDefault();
         const id = event.srcElement.dataset.champion;
+        
         showDetail(id);
       });
     }
@@ -70,7 +71,7 @@ const lolData1 = Object.values(window.LOL.data);
 
     document.getElementById("page2").style.display = "none";
     document.getElementById("page3").style.display = "block";
-    let championDetail = window.data.findChampion(window.LOL, id);
+    let championDetail = window.data.findChampion(datajson, id);
     document.getElementById("champions-detail").innerHTML = `
       <div class="card large">
         <div>
@@ -258,26 +259,26 @@ const lolData1 = Object.values(window.LOL.data);
     }
   }
 
-  document.getElementById('search').addEventListener("keydown", (e) => {
-    if(e.keyCode === 13){
+  // document.getElementById('search').addEventListener("keydown", (e) => {
+  //   if(e.keyCode === 13){
 
-      let condition = document.getElementById('search').value
-      let datasearch = window.data.searchChamp(window.LOL,condition);
-      showCards(datasearch);
-    }
+  //     let condition = document.getElementById('search').value
+  //     let datasearch = window.data.searchChamp(window.LOL,condition);
+  //     showCards(datasearch);
+  //   }
  
-   });
+  //  });
 
   document.getElementById('selectRol').addEventListener("change", () => {
     let condition = document.getElementById('selectRol').value;
-    let datafilter = window.data.filterData(window.LOL, condition);
+    let datafilter = window.data.filterData(datajson, condition);
     showCards(datafilter);
   });
 
   document.getElementById('selectOrder').addEventListener("change", () => {
 
     let sortOrder = document.getElementById('selectOrder').value;
-    let datasort = window.data.sortData(window.LOL, "id", sortOrder);
+    let datasort = window.data.sortData(datajson, "id", sortOrder);
     showCards(datasort);
   });
   document.getElementById("champions").addEventListener("click",
@@ -288,7 +289,7 @@ const lolData1 = Object.values(window.LOL.data);
       document.getElementById("page3").style.display = "none";
       document.getElementById("page4").style.display = "none";
 
-      showCards(window.LOL);
+      showCards(datajson);
     })
 
    document.getElementById("stats").addEventListener("click",
@@ -322,7 +323,7 @@ const lolData1 = Object.values(window.LOL.data);
                   label: "Cantidad de personaje por rol",
                   backgroundColor: '#01579b',
                   borderColor: '#01579b',
-                  data: [window.data.filterData(window.LOL, "Fighter").length, window.data.filterData(window.LOL, "Mage").length,window.data.filterData(window.LOL, "Assassin").length,window.data.filterData(window.LOL, "Tank").length, window.data.filterData(window.LOL, "Support").length, window.data.filterData(window.LOL, "Marksman").length],
+                  data: [window.data.filterData(datajson, "Fighter").length, window.data.filterData(datajson, "Mage").length,window.data.filterData(datajson, "Assassin").length,window.data.filterData(datajson, "Tank").length, window.data.filterData(datajson, "Support").length, window.data.filterData(datajson, "Marksman").length],
               }]
           },
           options: {
@@ -334,7 +335,7 @@ const lolData1 = Object.values(window.LOL.data);
   function showStats() {
 
     document.getElementById('root').innerHTML = ''
-    const listAverage = window.data.computeStats(window.LOL);
+    const listAverage = window.data.computeStats(datajson);
     let image = ["assassin.jpeg", "fighter.jpeg", "mage.jpeg", "marksman.jpeg", "support.jpeg", "tank.jpeg"];
     for (let k = 0; k < listAverage.length; k++) {
       const average = listAverage[k];
@@ -536,7 +537,7 @@ const lolData1 = Object.values(window.LOL.data);
       document.getElementById("page2").style.display = "block";
       document.getElementById("page4").style.display = "none";
 
-      showCards(window.LOL);
+      showCards(datajson);
     });
 
   document.getElementById("stats-1").addEventListener("click",
@@ -566,7 +567,7 @@ const lolData1 = Object.values(window.LOL.data);
                   label: "Cantidad de personaje por rol",
                   backgroundColor: '#01579b',
                   borderColor: '#01579b',
-                  data: [window.data.filterData(window.LOL, "Fighter").length, window.data.filterData(window.LOL, "Mage").length,window.data.filterData(window.LOL, "Assassin").length,window.data.filterData(window.LOL, "Tank").length, window.data.filterData(window.LOL, "Support").length, window.data.filterData(window.LOL, "Marksman").length],
+                  data: [window.data.filterData(datajson, "Fighter").length, window.data.filterData(datajson, "Mage").length,window.data.filterData(datajson, "Assassin").length,window.data.filterData(datajson, "Tank").length, window.data.filterData(datajson, "Support").length, window.data.filterData(datajson, "Marksman").length],
               }]
           },
           options: {}
