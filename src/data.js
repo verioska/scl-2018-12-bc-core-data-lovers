@@ -9,6 +9,15 @@ window.data ={
     });
     return category;
   },
+
+  searchChamp: (data, condition) => {
+    const lolData= data;
+    const championData= Object.values(lolData.data);
+    const category = championData.filter(champ => {
+      return (champ.name.indexOf(condition) !== -1);
+    })
+    return category;
+  },
    
   sortData: (data,sortBy,sortOrder) => {
     const lolData= data;
