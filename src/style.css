@@ -194,6 +194,7 @@ div.col.l9{
 .canvasmyChart{
     background-color: blue;
 }
+
 #search{
     width: 130px;
     height: 30px;
@@ -203,6 +204,7 @@ div.col.l9{
     -moz-border-radius: 30px;
     border-radius: 8px;
   }
+
 a{
     height: 5px;  
 }
@@ -235,6 +237,9 @@ and (max-width : 480px) {
         margin-top:20px;
         margin-left:5px;
     }
+    #search{
+       display: none;
+      }
 }
 
 @media only screen
