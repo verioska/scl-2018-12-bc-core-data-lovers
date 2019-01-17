@@ -195,16 +195,22 @@ div.col.l9{
     background-color: blue;
 }
 #search{
+    font-size: 20px;
+    padding:10px 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     
-    width: 90px;
-    height: 20px;
+
+    margin-right: 20px;
     
+    width: 150px;
+    height: 6px;
     
+    background-color:white;
     color:#9C865A;
-    padding-left: 30px;
+   
     -webkit-border-radius: 58px;
     -moz-border-radius: 30px;
-    border-radius: 10px;
+    border-radius: 5px;
   }
 @media only screen
 and (max-width : 480px) {

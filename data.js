@@ -6,13 +6,13 @@ window.data ={
     //const championData= Object.values(lolData.data);
     const category=championData.filter(tipos =>{
     return tipos.tags.indexOf(condition)!==-1;
-    });
+    }); 
     return category;
   },
 
   searchChamp: (data, condition) => {
-    const lolData= data;
-    const championData= Object.values(lolData.data);
+    const championData= data;
+   // const championData= Object.values(lolData.data);
     const category = championData.filter(champ => {
       return (champ.name.indexOf(condition) !== -1);
     })
