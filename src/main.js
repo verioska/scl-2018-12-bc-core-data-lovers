@@ -254,20 +254,20 @@ window.onload =() =>{
         document.getElementById("page2").style.display = "block";
         document.getElementById("page3").style.display = "none";
         document.getElementById("page4").style.display = "none";
-        showCards(window.LOL);
+        showCards(datajson);
       });
     }
   }
 
-  // document.getElementById('search').addEventListener("keydown", (e) => {
-  //   if(e.keyCode === 13){
+  document.getElementById('search').addEventListener("keydown", (e) => {
+    if(e.keyCode === 13){
 
-  //     let condition = document.getElementById('search').value
-  //     let datasearch = window.data.searchChamp(window.LOL,condition);
-  //     showCards(datasearch);
-  //   }
+      let condition = document.getElementById('search').value
+      let datasearch = window.data.searchChamp(datajson,condition);
+      showCards(datasearch);
+    }
  
-  //  });
+   });
 
   document.getElementById('selectRol').addEventListener("change", () => {
     let condition = document.getElementById('selectRol').value;
@@ -548,6 +548,7 @@ window.onload =() =>{
       document.getElementById("page2").style.display = "none";
       document.getElementById("page3").style.display = "none";
       document.getElementById("page4").style.display = "block";
+      document.getElementById("page5").style.display = "none";
       showStats();
     });
     document.getElementById("graphic-1").addEventListener("click",
