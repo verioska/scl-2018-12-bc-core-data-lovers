@@ -257,7 +257,7 @@ window.onload =() =>{
         showCards(datajson);
       });
     }
-  }
+  };
 
   document.getElementById('search').addEventListener("keydown", (e) => {
     if(e.keyCode === 13){
@@ -290,7 +290,7 @@ window.onload =() =>{
       document.getElementById("page4").style.display = "none";
 
       showCards(datajson);
-    })
+    });
 
    document.getElementById("stats").addEventListener("click",
     (event) => {
