@@ -195,23 +195,17 @@ div.col.l9{
     background-color: blue;
 }
 #search{
-    font-size: 20px;
-    padding:10px 20px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    
-
-    margin-right: 20px;
-    
-    width: 150px;
-    height: 6px;
-    
+    width: 130px;
+    height: 30px;
     background-color:white;
     color:#9C865A;
-   
     -webkit-border-radius: 58px;
     -moz-border-radius: 30px;
-    border-radius: 5px;
+    border-radius: 8px;
   }
+a{
+    height: 5px;  
+}
 @media only screen
 and (max-width : 480px) {
     .card.large { 

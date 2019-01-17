@@ -14,7 +14,7 @@ window.data ={
     const championData= data;
    // const championData= Object.values(lolData.data);
     const category = championData.filter(champ => {
-      return (champ.name.indexOf(condition) !== -1);
+      return (champ.name.toLowerCase().indexOf(condition.toLowerCase()) !== -1);
     })
     return category;
   },
@@ -75,11 +75,11 @@ window.data ={
               
               let champion=categoria[i] //objeto  
               
-              const information1 = ((champion || {}).info); //objeto
-              const information= Object.entries(information1); //array
+              const informationcham = ((champion || {}).info); //objeto
+              const information= Object.entries(informationcham); //array
               
-              const statics1=((champion || {}).stats); //objeto
-              const statics= Object.entries(statics1); //array   
+              const staticscham=((champion || {}).stats); //objeto
+              const statics= Object.entries(staticscham); //array   
   
               for (let j=0;j<4;j++){
                   let n=information[j][1];
