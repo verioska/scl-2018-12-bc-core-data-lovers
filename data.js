@@ -59,9 +59,7 @@ window.data ={
     return championInfo;
     
   },
-
-
-  
+ 
   computeStats: (data) =>{
       let tag=["Assassin","Fighter","Mage","Marksman","Support","Tank"];      
       let list_tag=[];
