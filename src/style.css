@@ -60,7 +60,9 @@ h1{
 #page2,#page4,#page5{
     display: none;
 }
-
+#page8{
+    color: aliceblue;
+}
 #root{
     color:#9C865A;
 }

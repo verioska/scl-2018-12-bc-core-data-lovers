@@ -69,5 +69,13 @@ describe('lol', () => {
             window.assert.equal(averageMage,3.55);            
         });
     })
-
+    describe('data.searchChamp',()=>{
+        it('Debería ser una funcion',()=>{
+            window.assert.equal(typeof window.data.searchChamp,'function');
+           
+    });
+   
+   
+    
+})
 });

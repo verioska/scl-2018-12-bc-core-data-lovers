@@ -66,6 +66,64 @@ window.onload =() =>{
     }
   }
 
+  function showCardsHistory(data) {
+    const lolData=Object.values(data);
+    document.getElementById("page3").style.display = "none";
+
+    document.getElementById('root').innerHTML = '';
+    document.getElementById('page7').innerHTML = '';
+    for (let i = 0; i < lolData.length; i++) {
+      document.getElementById('page7').innerHTML += `
+        <div class="container">
+        <div class="col s3" >
+        <div class="card">
+          <img class="imagen-lol responsive-img" src="${lolData[i].splash}" >
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-2"><h6>${lolData[i].name}</h6></span>
+              <span class="link link3" data-champion='${lolData[i].id}'>Hidtoria</span>
+              </div>
+              
+              
+                
+              </div>  
+            </div>
+          </div>
+          </div>
+       `
+    }
+    const linkshistory = document.getElementsByClassName('link3');
+    for (let i = 0; i < linkshistory.length; i++) {
+      linkshistory[i].addEventListener('click', (event) => {
+        event.preventDefault();
+        const id = event.srcElement.dataset.champion;
+        
+        document.getElementById("page1").style.display = "none";
+        document.getElementById("page2").style.display = "none";
+        document.getElementById("page3").style.display = "none";
+        document.getElementById("page4").style.display = "none";
+        document.getElementById("page5").style.display = "none";
+        document.getElementById("page7").style.display = "none";
+        document.getElementById("page8").style.display = "block";
+        
+        fetch("http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion/"+id+".json")
+       .then(res=>res.json())
+       .then(data=>{
+         console.log(data, "este es el cpnsolo de data")
+         datajsonapi=Object.values(data.data);
+         document.getElementById('page8').innerHTML ='';
+         for (let i = 0; i <datajsonapi.length; i++){
+           
+           console.log(datajsonapi[i].lore)
+           document.getElementById('page8').innerHTML += `
+           <p color=white>${datajsonapi[i].lore}</p>
+           `
+          }
+        })
+      
+    })
+  }
+}
+
 
   function showDetail(id) {
 
@@ -257,7 +315,7 @@ window.onload =() =>{
         showCards(datajson);
       });
     }
-  };
+  }
 
   document.getElementById('search').addEventListener("keydown", (e) => {
     if(e.keyCode === 13){
@@ -268,6 +326,22 @@ window.onload =() =>{
     }
  
    });
+
+   document.getElementById("histoy").addEventListener("click",
+     (event) => {
+       event.preventDefault();
+       document.getElementById("page1").style.display = "none";
+       document.getElementById("page2").style.display = "none";
+       document.getElementById("page3").style.display = "none";
+       document.getElementById("page4").style.display = "none";
+       document.getElementById("page5").style.display = "none";
+       
+       document.getElementById("page7").style.display = "block";
+      
+       showCardsHistory(datajson)
+       
+      });
+
 
   document.getElementById('selectRol').addEventListener("change", () => {
     let condition = document.getElementById('selectRol').value;
@@ -288,6 +362,8 @@ window.onload =() =>{
       document.getElementById("page2").style.display = "block";
       document.getElementById("page3").style.display = "none";
       document.getElementById("page4").style.display = "none";
+      document.getElementById("page7").style.display = "none";
+      document.getElementById("page8").style.display = "none";
 
       showCards(datajson);
     });
@@ -301,6 +377,8 @@ window.onload =() =>{
       document.getElementById("page3").style.display = "none";
       document.getElementById("page4").style.display = "block";
       document.getElementById("page5").style.display = "none";
+      document.getElementById("page7").style.display = "none";
+      document.getElementById("page8").style.display = "none";
       showStats();
     });
     
@@ -314,6 +392,8 @@ window.onload =() =>{
       document.getElementById("page3").style.display = "none";
       document.getElementById("page4").style.display = "none";
       document.getElementById("page5").style.display = "block";
+      document.getElementById("page7").style.display = "none";
+      document.getElementById("page8").style.display = "none";
       
       new window.Chart(document.getElementById('myChart').getContext('2d'), {
           type: 'bar',
