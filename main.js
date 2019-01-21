@@ -95,7 +95,7 @@ window.onload =() =>{
         document.getElementById("page7").style.display = "none";
         document.getElementById("page8").style.display = "block";
         
-        fetch("http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion/"+id+".json")
+        fetch("https://cors-anywhere.herokuapp.com/http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion/"+id+".json")
        .then(res=>res.json())
        .then(data=>{
          datajsonapi=Object.values(data.data);
