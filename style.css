@@ -239,6 +239,9 @@ and (max-width : 480px) {
         margin-top:20px;
         margin-left:5px;
     }
+    .row{
+        margin-left:5%;
+    }
     #search{
        display: none;
       }
