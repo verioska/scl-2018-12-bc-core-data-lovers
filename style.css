@@ -239,9 +239,13 @@ and (max-width : 480px) {
         margin-top:20px;
         margin-left:5px;
     }
-    .row{
-        margin-left:5%;
-    }
+   div.col.s12.m3{
+    margin-left:15%;
+   }
+
+   #history{
+    margin-left:40%; 
+   }
     #search{
        display: none;
       }
