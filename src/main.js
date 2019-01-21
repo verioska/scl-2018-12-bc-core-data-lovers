@@ -31,12 +31,10 @@ window.onload =() =>{
     document.getElementById('champions-list').innerHTML = '';
     for (let i = 0; i < lolData.length; i++) {
       document.getElementById('champions-list').innerHTML += `
-      <div class="container">
-      <div class="row">
-       <div class="col s6 m3" >
+       <div class="col s12 m3" >
         <div class="card">
           <img class="imagen-lol responsive-img" src="${lolData[i].splash}" >
-        <div class="card-content">
+          <div class="card-content">
             <span class="card-title activator grey-text text-darken-2"><h6>${lolData[i].name}</h6><i class="material-icons right">more_vert</i></span>
             </div>
             <div class="card-reveal">
@@ -48,9 +46,7 @@ window.onload =() =>{
               <span class="link" data-champion='${lolData[i].id}'>Ver mas</span>
             </div>
             </div>
-          </div>
-          </div>
-      </div> `
+         </div> `
     }
     const links = document.getElementsByClassName('link');
     for (let i = 0; i < links.length; i++) {
@@ -71,8 +67,8 @@ window.onload =() =>{
     for (let i = 0; i < lolData.length; i++) {
       document.getElementById('page7').innerHTML += `
         <div class="container">
-        <div class="row">
-        <div class="col s6 m3" >
+        
+        <div id="history" class="col s12 m3" >
         <div class="card">
           <img class="imagen-lol responsive-img" src="${lolData[i].splash}" >
             <div class="card-content">
@@ -81,7 +77,7 @@ window.onload =() =>{
               </div>
             </div>  
           </div> 
-          </div>
+          
         </div>
       </div>
        `
