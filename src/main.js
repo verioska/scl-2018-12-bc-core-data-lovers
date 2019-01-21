@@ -6,19 +6,14 @@ fetch("data/lol/lol.json")
    
  })
 
-
-
-
 document.addEventListener('DOMContentLoaded', function(){
   window.M.AutoInit(); 
 });
 
-
 window.onload =() =>{
 
   document.getElementById("page3").style.display="none";
-
-  document.getElementById("start").addEventListener("click",
+   document.getElementById("start").addEventListener("click",
   (event) => {
   event.preventDefault();
   
@@ -28,12 +23,10 @@ window.onload =() =>{
   document.getElementById("page5").style.display="none";
   showCards(datajson)
 });
-
  
  function showCards(data) {
     const lolData=Object.values(data);
     document.getElementById("page3").style.display = "none";
-
     document.getElementById('root').innerHTML = '';
     document.getElementById('champions-list').innerHTML = '';
     for (let i = 0; i < lolData.length; i++) {
@@ -69,30 +62,27 @@ window.onload =() =>{
   function showCardsHistory(data) {
     const lolData=Object.values(data);
     document.getElementById("page3").style.display = "none";
-
     document.getElementById('root').innerHTML = '';
     document.getElementById('page7').innerHTML = '';
     for (let i = 0; i < lolData.length; i++) {
       document.getElementById('page7').innerHTML += `
         <div class="container">
-        <div class="col s3" >
+        <div class="col s6 m3" >
         <div class="card">
           <img class="imagen-lol responsive-img" src="${lolData[i].splash}" >
             <div class="card-content">
               <span class="card-title activator grey-text text-darken-2"><h6>${lolData[i].name}</h6></span>
-              <span class="link link3" data-champion='${lolData[i].id}'>Hidtoria</span>
+              <span class="link linkHistory" data-champion='${lolData[i].id}'>Historia</span>
               </div>
-              
-              
-                
-              </div>  
-            </div>
+            </div>  
           </div>
-          </div>
+        </div>
+      </div>
        `
     }
-    const linkshistory = document.getElementsByClassName('link3');
+    const linkshistory = document.getElementsByClassName('linkHistory');
     for (let i = 0; i < linkshistory.length; i++) {
+      
       linkshistory[i].addEventListener('click', (event) => {
         event.preventDefault();
         const id = event.srcElement.dataset.champion;
@@ -108,26 +98,29 @@ window.onload =() =>{
         fetch("http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion/"+id+".json")
        .then(res=>res.json())
        .then(data=>{
-         console.log(data, "este es el cpnsolo de data")
          datajsonapi=Object.values(data.data);
          document.getElementById('page8').innerHTML ='';
-         for (let i = 0; i <datajsonapi.length; i++){
-           
-           console.log(datajsonapi[i].lore)
+         for (let i = 0; i <datajsonapi.length; i++){ 
            document.getElementById('page8').innerHTML += `
-           <p color=white>${datajsonapi[i].lore}</p>
-           `
+           <p >${datajsonapi[i].lore}</p>
+           <button id="close">Volver</button>
+           ` 
           }
+          document.getElementById("close").addEventListener("click",
+          (event) => {
+          event.preventDefault();
+          showCardsHistory(datajson);
+          document.getElementById("page7").style.display = "block";
+          document.getElementById("page8").style.display = "none";
         })
-      
+      })
     })
   }
 }
 
 
   function showDetail(id) {
-
-    document.getElementById("page2").style.display = "none";
+   document.getElementById("page2").style.display = "none";
     document.getElementById("page3").style.display = "block";
     let championDetail = window.data.findChampion(datajson, id);
     document.getElementById("champions-detail").innerHTML = `
@@ -140,7 +133,6 @@ window.onload =() =>{
             <p id="champions-n">${championDetail.partype}<p>
           </div>
          </div>
-
        <section class="container" style="width:95%">
           <div class="row" >
             <div class="col l12">
@@ -157,7 +149,6 @@ window.onload =() =>{
                 <div class="col l6" id="mp">${championDetail.stats.mp}</div>
               </div>
             </div>
-
             <div class="col s6 l3" > 
               <div class="row">
                 <div class="col l6">Spell block per level</div>
@@ -319,7 +310,6 @@ window.onload =() =>{
 
   document.getElementById('search').addEventListener("keydown", (e) => {
     if(e.keyCode === 13){
-
       let condition = document.getElementById('search').value
       let datasearch = window.data.searchChamp(datajson,condition);
       showCards(datasearch);
@@ -327,7 +317,7 @@ window.onload =() =>{
  
    });
 
-   document.getElementById("histoy").addEventListener("click",
+   document.getElementById("history").addEventListener("click",
      (event) => {
        event.preventDefault();
        document.getElementById("page1").style.display = "none";
@@ -335,13 +325,11 @@ window.onload =() =>{
        document.getElementById("page3").style.display = "none";
        document.getElementById("page4").style.display = "none";
        document.getElementById("page5").style.display = "none";
-       
        document.getElementById("page7").style.display = "block";
       
        showCardsHistory(datajson)
        
       });
-
 
   document.getElementById('selectRol').addEventListener("change", () => {
     let condition = document.getElementById('selectRol').value;
@@ -382,7 +370,6 @@ window.onload =() =>{
       showStats();
     });
     
-
     document.getElementById("graphic").addEventListener("click",
     (event) => {
       event.preventDefault();
@@ -603,6 +590,7 @@ window.onload =() =>{
 
   // Menu responsive
 
+
   document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.sidenav');
     window.M.Sidenav.init(elems);
@@ -616,6 +604,9 @@ window.onload =() =>{
       document.getElementById("page1").style.display = "none";
       document.getElementById("page2").style.display = "block";
       document.getElementById("page4").style.display = "none";
+      document.getElementById("page7").style.display = "none";
+      document.getElementById("page8").style.display = "none";
+
 
       showCards(datajson);
     });
@@ -629,8 +620,25 @@ window.onload =() =>{
       document.getElementById("page3").style.display = "none";
       document.getElementById("page4").style.display = "block";
       document.getElementById("page5").style.display = "none";
+      document.getElementById("page7").style.display = "none";
+      document.getElementById("page8").style.display = "none";
+
       showStats();
     });
+
+    document.getElementById("history-1").addEventListener("click",
+    (event) => {
+      event.preventDefault();
+      document.getElementById("page1").style.display = "none";
+      document.getElementById("page2").style.display = "none";
+      document.getElementById("page3").style.display = "none";
+      document.getElementById("page4").style.display = "none";
+      document.getElementById("page5").style.display = "none";
+      document.getElementById("page7").style.display = "block";
+     
+      showCardsHistory(datajson)
+      
+     });
     document.getElementById("graphic-1").addEventListener("click",
     (event) => {
       event.preventDefault();
