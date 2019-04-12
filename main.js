@@ -100,7 +100,8 @@ window.onload =() =>{
         fetch("https://cors-anywhere.herokuapp.com/http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion/"+id+".json")
        .then(res=>res.json())
        .then(data=>{
-         datajsonapi=Object.values(data.data);
+         console.log(data)
+        const datajsonapi=Object.values(data.data);
          document.getElementById('page8').innerHTML ='';
          for (let i = 0; i <datajsonapi.length; i++){ 
            document.getElementById('page8').innerHTML += `
